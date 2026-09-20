@@ -1,5 +1,13 @@
 # CodeQuest Lab 🚀
 
+[![CI](https://github.com/thetebis-wq/codequest/actions/workflows/ci.yml/badge.svg)](https://github.com/thetebis-wq/codequest/actions/workflows/ci.yml)
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat&logo=typescript&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white)
+![C++](https://img.shields.io/badge/C%2B%2B-20-00599C?style=flat&logo=c%2B%2B&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Plataforma web gamificada e interactiva de aprendizaje profundo de programación desde cero en **Python 3.12** y **C++ 20**, con editor Monaco integrado, ejecución de código en tiempo real, diagnósticos pedagógicos guiados y tutor socrático impulsado por IA (Gemini).
 
 ---
