@@ -1,0 +1,56 @@
+{
+  "id": "py-m3-ex1-calculadora-basica",
+  "level": 12,
+  "title": "Tu Primera Calculadora",
+  "subtitle": "Suma, resta, multiplicación y división en Python",
+  "difficulty": "Fundamento",
+  "xpReward": 50,
+  "entryFunctionName": null,
+  "evaluationType": "stdout",
+  "spec": {
+    "summary": "Calcula e imprime los siguientes resultados: suma = 15 + 7, diferencia = 20 - 8, producto = 6 * 4, division = 10 / 4.",
+    "learningObjectives": [
+      "Usar operadores matemáticos",
+      "Almacenar el resultado de una expresión en una variable"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Matemáticas en Código",
+    "mentalModel": "Python funciona exactamente como la calculadora que usas en papel o en el teléfono. Los símbolos +, -, * y / hacen exactamente lo que esperas.",
+    "mathematicalFoundation": "Las operaciones siguen el orden de las operaciones matemáticas habitual (PEMDAS).",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Operaciones matemáticas básicas tardan tiempo constante."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "En Python, la división con `/` siempre devuelve un decimal (float).",
+    "cppExplanation": "En C++, si divides dos enteros (ej. 10 / 4), el resultado será un entero (2). Para obtener decimales, debes usar un tipo `float` o `double`."
+  },
+  "starterCodes": {
+    "python": "# PASO 1: Calcula suma (15 + 7) y guárdala en una variable, luego imprímela\n# PASO 2: Calcula diferencia (20 - 8), guárdala e imprímela\n# PASO 3: Calcula producto (6 * 4), guárdala e imprímela\n# PASO 4: Calcula division (10 / 4), guárdala e imprímela\n# Tu código va aquí:\n",
+    "cpp": "#include <iostream>\n\nint main() {\n    // Calcula e imprime suma, resta, multiplicación y división\n    // Tu código va aquí:\n    \n    return 0;\n}"
+  },
+  "solutionReferences": {
+    "python": "suma = 15 + 7\ndiferencia = 20 - 8\nproducto = 6 * 4\ndivision = 10 / 4\nprint(suma)\nprint(diferencia)\nprint(producto)\nprint(division)",
+    "cpp": "#include <iostream>\n\nint main() {\n    int suma = 15 + 7;\n    int diferencia = 20 - 8;\n    int producto = 6 * 4;\n    double division = 10.0 / 4.0;\n    std::cout << suma << \"\\n\" << diferencia << \"\\n\" << producto << \"\\n\" << division << std::endl;\n    return 0;\n}"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "input": "",
+      "expectedOutput": "22\n12\n24\n2.5\n",
+      "isHidden": false,
+      "evaluationType": "stdout"
+    }
+  ],
+  "socraticHints": [
+    {"level": 1, "title": "Asignación e impresión", "prompt": "Puedes calcular e imprimir en el mismo paso con `print(15 + 7)`, pero es mejor guardarlo en una variable primero: `suma = 15 + 7` y luego `print(suma)`."}
+  ]
+}

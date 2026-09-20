@@ -1,0 +1,77 @@
+{
+  "id": "py-m2-ex2-tipos-de-datos",
+  "level": 11,
+  "title": "Los 4 Tipos de Datos Esenciales",
+  "subtitle": "int, float, str y bool: los bloques de construcción de cualquier programa",
+  "difficulty": "Fundamento",
+  "xpReward": 50,
+  "entryFunctionName": null,
+  "evaluationType": "variable_check",
+  "spec": {
+    "summary": "Crea 4 variables: entero=42, decimal=3.14, texto='Python', activo=True. Luego imprime cada tipo usando print(type(variable)).",
+    "learningObjectives": [
+      "Conocer los cuatro tipos de datos básicos",
+      "Usar la función type() para identificar el tipo de dato"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Tipos Básicos",
+    "mentalModel": "Python tiene 4 tipos básicos: int para números enteros, float para decimales, str para texto en comillas y bool para verdadero (True) o falso (False).",
+    "mathematicalFoundation": "N/A",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Creación de variables de tamaño fijo."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "La función `type()` en Python devuelve el tipo del objeto (ej. <class 'int'>).",
+    "cppExplanation": "C++ es estáticamente tipado, por lo que usas palabras clave específicas: `int`, `float`/`double`, `std::string` y `bool`."
+  },
+  "starterCodes": {
+    "python": "# PASO 1: Crea variable entero = 42\n# PASO 2: Crea variable decimal = 3.14\n# PASO 3: Crea variable texto = 'Python'\n# PASO 4: Crea variable activo = True\n# PASO 5: Imprime los tipos usando print(type(nombre_de_variable))\n# Tu código va aquí:\n",
+    "cpp": "#include <iostream>\n#include <string>\n\nint main() {\n    // Declara variables de diferentes tipos (int, double, string, bool)\n    // Tu código va aquí:\n    \n    return 0;\n}"
+  },
+  "solutionReferences": {
+    "python": "entero = 42\ndecimal = 3.14\ntexto = 'Python'\nactivo = True\nprint(type(entero))\nprint(type(decimal))\nprint(type(texto))\nprint(type(activo))",
+    "cpp": "#include <iostream>\n#include <string>\n\nint main() {\n    int entero = 42;\n    double decimal = 3.14;\n    std::string texto = \"Python\";\n    bool activo = true;\n    return 0;\n}"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "input": "entero",
+      "expectedOutput": "42",
+      "isHidden": false,
+      "evaluationType": "variable_check"
+    },
+    {
+      "id": "tc-2",
+      "input": "decimal",
+      "expectedOutput": "3.14",
+      "isHidden": false,
+      "evaluationType": "variable_check"
+    },
+    {
+      "id": "tc-3",
+      "input": "texto",
+      "expectedOutput": "'Python'",
+      "isHidden": false,
+      "evaluationType": "variable_check"
+    },
+    {
+      "id": "tc-4",
+      "input": "activo",
+      "expectedOutput": "True",
+      "isHidden": false,
+      "evaluationType": "variable_check"
+    }
+  ],
+  "socraticHints": [
+    {"level": 1, "title": "Asignación de tipos", "prompt": "Los números no llevan comillas, el texto (str) sí lleva comillas y `True` (bool) se escribe con la T mayúscula sin comillas."}
+  ]
+}

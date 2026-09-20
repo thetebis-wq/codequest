@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m1-ex1-hola-mundo",
+  "level": 20,
+  "title": "Tu Primer Programa en C++",
+  "subtitle": "La estructura mínima: #include, main() y std::cout",
+  "difficulty": "Fundamento",
+  "xpReward": 30,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "Todo programa C++ necesita tres cosas: 1) #include <iostream> para entrada/salida, 2) int main() { } como punto de entrada, 3) std::cout para imprimir. Tu tarea: escribir el programa mínimo que imprime 'Hola, Mundo!'",
+    "learningObjectives": [
+      "Entender la estructura mínima de un programa C++",
+      "Usar #include para importar librerías del sistema",
+      "Usar std::cout y el operador << para imprimir texto",
+      "Entender por qué int main() retorna 0 (éxito)"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "La Anatomía de un Programa C++",
+    "mentalModel": "Piensa en un programa C++ como un edificio: #include es el plomero que conecta tu edificio al suministro de agua (las librerías del sistema). int main() es la puerta principal — toda visita (ejecución) entra por ahí. std::cout es el altavoz que hace anuncios (imprime texto). El punto y coma ; al final de cada instrucción es obligatorio — como el punto al final de una oración.",
+    "mathematicalFoundation": "C++ es un lenguaje compilado: el código fuente pasa por un compilador (g++, clang++) que lo transforma en instrucciones máquina nativas. return 0 le indica al sistema operativo que el programa terminó sin errores (0 = éxito, cualquier otro número = error).",
+    "historicalFootnote": "C++ fue creado por Bjarne Stroustrup en Bell Labs (1979-1983) como extensión de C con clases. El primer compilador se llamó 'Cfront'. Hoy es el lenguaje de videojuegos, navegadores y sistemas operativos.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Imprimir un string de longitud fija es O(1)."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: print('Hola, Mundo!') — 1 línea, sin estructura extra. El intérprete gestiona todo automáticamente. No necesitas declarar main ni importar nada para imprimir.",
+    "cppExplanation": "C++ requiere estructura explícita: #include para librerías, int main() como punto de entrada, std::cout con << para imprimir, y ; al final de cada instrucción. Más verbose pero más control sobre el hardware."
+  },
+  "starterCodes": {
+    "python": "# Equivalente en Python (solo para referencia):\nprint(\"Hola, Mundo!\")\n",
+    "cpp": "// MÓDULO 1 C++: Tu Primer Programa\n// ===================================\n// Un programa C++ SIEMPRE necesita esta estructura:\n//\n// PASO 1: Incluye la librería de entrada/salida\n//         Escribe: #include <iostream>\n//\n// PASO 2: Define la función principal (punto de entrada)\n//         Escribe: int main() {\n//\n// PASO 3: Imprime el mensaje con std::cout\n//         Escribe:     std::cout << \"Hola, Mundo!\" << std::endl;\n//         (nota los 4 espacios de indentación — buena práctica)\n//\n// PASO 4: Retorna 0 para indicar éxito y cierra la llave\n//         Escribe:     return 0;\n//                  }\n//\n// Tu código va aquí (borra estos comentarios y escribe el programa real):\n"
+  },
+  "solutionReferences": {
+    "python": "print(\"Hola, Mundo!\")\n",
+    "cpp": "#include <iostream>\n\nint main() {\n    std::cout << \"Hola, Mundo!\" << std::endl;\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "El programa debe imprimir exactamente: Hola, Mundo!",
+      "input": "",
+      "expectedOutput": "Hola, Mundo!",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta: misma salida",
+      "input": "",
+      "expectedOutput": "Hola, Mundo!",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Qué hace #include <iostream>?",
+      "prompt": "#include le dice al compilador que 'incluya' una librería. <iostream> es la librería de Input/Output (entrada/salida) — sin ella, std::cout no existe. ¿Tienes esa línea al inicio de tu programa?"
+    },
+    {
+      "level": 2,
+      "title": "¿Qué es int main()?",
+      "prompt": "int main() es la función principal: el compilador busca SIEMPRE esta función para saber dónde empezar la ejecución. 'int' significa que retorna un número entero. Las llaves { } encierran el código. ¿Tienes int main() con sus llaves?"
+    },
+    {
+      "level": 3,
+      "title": "El operador << de std::cout",
+      "prompt": "std::cout es el 'objeto de salida estándar'. El operador << envía texto hacia él. Puedes encadenar varios: std::cout << \"Hola\" << \", Mundo!\" << std::endl; std::endl agrega una nueva línea. ¿Tu cout usa << correctamente?"
+    }
+  ]
+}

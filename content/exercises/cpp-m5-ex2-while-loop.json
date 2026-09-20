@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m5-ex2-while-loop",
+  "level": 24,
+  "title": "El Bucle while y la Suma Acumulativa",
+  "subtitle": "Repite mientras una condición sea verdadera, con operadores +=",
+  "difficulty": "Fundamento",
+  "xpReward": 80,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "El while de C++ funciona igual que en Python pero con paréntesis en la condición y llaves para el bloque. Los operadores += -= *= /= son atajos útiles. Tu tarea: sumar números del 1 al 10 con while.",
+    "learningObjectives": [
+      "Escribir un bucle while en C++ con paréntesis y llaves",
+      "Usar operadores de asignación compuesta: +=, -=, *=",
+      "Usar i++ como atajo para i = i + 1",
+      "Aplicar el patrón acumulador en C++"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "while en C++: Idéntico en Lógica, Diferente en Sintaxis",
+    "mentalModel": "El while de C++ y Python son conceptualmente idénticos. Solo cambia la sintaxis: Python usa : y sangría; C++ usa () para la condición y {} para el bloque. Los operadores += son convenientes: total += i es exactamente igual a total = total + i.",
+    "mathematicalFoundation": "Suma aritmética: 1+2+...+n = n(n+1)/2. Para n=10: 10×11/2 = 55. El while verifica la condición antes de cada iteración — si empieza false, el cuerpo nunca se ejecuta.",
+    "historicalFootnote": "Los operadores compuestos (+=, -=, etc.) vienen de C y fueron diseñados para generar instrucciones de ensamblador más eficientes (ADD en vez de LOAD+ADD+STORE). Hoy los compiladores los optimizan igual, pero la sintaxis se mantiene por convención.",
+    "asymptoticComplexity": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "proofExplanation": "El bucle ejecuta n iteraciones. Solo usa dos variables (total e i) sin importar el valor de n."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: while i <= 10: (con dos puntos, sin paréntesis, con indentación). total += i es igual en Python y C++.",
+    "cppExplanation": "C++: while (i <= 10) { (con paréntesis obligatorios, sin dos puntos, con llaves). total += i funciona igual. i++ es igual a i += 1."
+  },
+  "starterCodes": {
+    "python": "# Python equivalente:\ntotal = 0\ni = 1\nwhile i <= 10:\n    total += i\n    i += 1\nprint(total)\n",
+    "cpp": "// MÓDULO 5 C++: Bucle while\n// ===========================\n// Sintaxis while en C++:\n//   while (condicion) {\n//       cuerpo;\n//   }\n//\n// Operadores compuestos (atajos útiles):\n//   total += i;  <- equivale a: total = total + i;\n//   i++;         <- equivale a: i = i + 1;\n//\n// PATRÓN ACUMULADOR:\n// PASO 1: #include <iostream>\n// PASO 2: int main() {\n// PASO 3: int total = 0;\n// PASO 4: int i = 1;\n// PASO 5: while (i <= 10) {\n// PASO 6:     total += i;   <- acumular\n// PASO 7:     i++;          <- avanzar contador\n// PASO 8: }\n// PASO 9: std::cout << total << \"\\n\";\n// PASO 10: return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "total = 0\ni = 1\nwhile i <= 10:\n    total += i\n    i += 1\nprint(total)\n",
+    "cpp": "#include <iostream>\n\nint main() {\n    int total = 0;\n    int i = 1;\n    while (i <= 10) {\n        total += i;\n        i++;\n    }\n    std::cout << total << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "La suma de 1 a 10 es 55",
+      "input": "",
+      "expectedOutput": "55",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "55",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿La condición del while entre paréntesis?",
+      "prompt": "En C++, la condición del while SIEMPRE va entre paréntesis: while (i <= 10). Sin los paréntesis, el compilador da error. ¿Tienes los paréntesis alrededor de 'i <= 10'?"
+    },
+    {
+      "level": 2,
+      "title": "¿Olvidaste i++ dentro del while?",
+      "prompt": "Si no incrementas i dentro del while, i siempre será 1, la condición i<=10 siempre será true, y el bucle nunca termina (bucle infinito). ¿Tienes i++ o i += 1 dentro del while?"
+    },
+    {
+      "level": 3,
+      "title": "¿El cout está fuera del while?",
+      "prompt": "El print del resultado va FUERA del while (después de la llave de cierre }). Si lo pones dentro, imprimirá el total parcial en cada iteración (1, 3, 6, 10, 15...). ¿Tu cout está fuera del bucle?"
+    }
+  ]
+}

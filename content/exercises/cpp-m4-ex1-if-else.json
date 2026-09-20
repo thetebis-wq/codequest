@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m4-ex1-if-else",
+  "level": 23,
+  "title": "if/else en C++: Decisiones con Llaves { }",
+  "subtitle": "La condición va en paréntesis y el bloque entre llaves",
+  "difficulty": "Fundamento",
+  "xpReward": 60,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "C++ if/else es similar a Python pero con diferencias de sintaxis: la condición va entre paréntesis (), el bloque de código entre llaves { }, y no hay dos puntos :. Tu tarea: verificar si una temperatura > 30 e imprimir el mensaje apropiado.",
+    "learningObjectives": [
+      "Escribir la sintaxis correcta de if/else en C++ con () y {}",
+      "Entender que la condición SIEMPRE va entre paréntesis",
+      "Saber que las llaves {} son opcionales para una sola instrucción pero recomendadas",
+      "Diferenciar la sintaxis de Python vs C++ en condicionales"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "if/else: Las Bifurcaciones del Programa",
+    "mentalModel": "El if es como un semáforo: si está en verde (condición verdadera), avanzas por un camino; si está en rojo (condición falsa), tomas el otro. C++ exige que la condición esté entre paréntesis — el compilador la necesita para saber dónde termina la condición y empieza el bloque. Las llaves {} delimitan exactamente qué instrucciones pertenecen al if o al else.",
+    "mathematicalFoundation": "El if implementa la bifurcación condicional: en assembly, es una instrucción CMP (compare) seguida de un JE/JNE/JL/JG (jump if equal/not equal/less/greater). El procesador literalmente salta a otra dirección de memoria según el resultado.",
+    "historicalFootnote": "La instrucción GOTO de Fortran (1957) era la forma original de ramificación. Edsger Dijkstra publicó 'Go To Statement Considered Harmful' (1968) que llevó al desarrollo de if/else estructurado que usamos hoy.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Una comparación y un salto condicional son instrucciones de hardware de tiempo constante."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: if temperatura > 30: (con dos puntos, sin paréntesis, con indentación). La indentación define el bloque. Sin llaves.",
+    "cppExplanation": "C++: if (temperatura > 30) { (con paréntesis, sin dos puntos, con llaves). Las llaves definen el bloque. La indentación es opcional pero buena práctica."
+  },
+  "starterCodes": {
+    "python": "# Python equivalente:\ntemperatura = 35\nif temperatura > 30:\n    print('Hace calor')\nelse:\n    print('Temperatura agradable')\n",
+    "cpp": "// MÓDULO 4 C++: if/else\n// =======================\n// DIFERENCIAS con Python:\n//   Python:  if condicion:          C++: if (condicion) {\n//                instruccion                 instruccion;\n//            else:                       } else {\n//                instruccion                 instruccion;\n//                                        }\n//\n// IMPORTANTE: condicion va entre ( ), bloque entre { }\n// No hay dos puntos : en C++\n//\n// PASO 1: #include <iostream>\n// PASO 2: int main() {\n// PASO 3: int temperatura = 35;\n// PASO 4: if (temperatura > 30) {\n// PASO 5:     std::cout << \"Hace calor\" << \"\\n\";\n// PASO 6: } else {\n// PASO 7:     std::cout << \"Temperatura agradable\" << \"\\n\";\n// PASO 8: }\n// PASO 9: return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "temperatura = 35\nif temperatura > 30:\n    print('Hace calor')\nelse:\n    print('Temperatura agradable')\n",
+    "cpp": "#include <iostream>\n\nint main() {\n    int temperatura = 35;\n    if (temperatura > 30) {\n        std::cout << \"Hace calor\" << \"\\n\";\n    } else {\n        std::cout << \"Temperatura agradable\" << \"\\n\";\n    }\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Con temperatura=35 (>30) debe imprimir 'Hace calor'",
+      "input": "",
+      "expectedOutput": "Hace calor",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "Hace calor",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿La condición va entre paréntesis?",
+      "prompt": "En C++, la condición del if SIEMPRE va entre paréntesis: if (temperatura > 30). Si escribes if temperatura > 30 sin paréntesis, el compilador dará error. ¿Tienes los paréntesis?"
+    },
+    {
+      "level": 2,
+      "title": "¿Dónde están las llaves { }?",
+      "prompt": "El bloque de código del if va entre llaves: if (condicion) { instrucciones; }. Lo mismo para else: else { instrucciones; }. ¿Tienes las llaves de apertura { y de cierre } correctas?"
+    },
+    {
+      "level": 3,
+      "title": "¿El punto y coma después de cada instrucción?",
+      "prompt": "En C++ cada instrucción termina con ;. std::cout << \"Hace calor\" << \"\\n\"; — nota el ; al final. ¿Todas tus instrucciones dentro del if y else tienen su punto y coma?"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "py-m1-ex2-presentacion",
+  "level": 10,
+  "title": "Mi Presentación Personal",
+  "subtitle": "Muestra múltiples líneas de información con print()",
+  "difficulty": "Fundamento",
+  "xpReward": 40,
+  "entryFunctionName": null,
+  "evaluationType": "stdout",
+  "spec": {
+    "summary": "Imprime exactamente 3 líneas:\nLínea 1: \"Nombre: Ana\"\nLínea 2: \"Edad: 25\"\nLínea 3: \"Ciudad: México\"",
+    "learningObjectives": [
+      "Usar múltiples instrucciones print()",
+      "Entender la secuencia de ejecución (arriba hacia abajo)"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Ejecución secuencial y comentarios",
+    "mentalModel": "Cada vez que llamas a print(), Python escribe el texto y luego presiona 'Enter' por ti (salto de línea). Los comentarios que empiezan con # son ignorados por la computadora, sirven como notas para humanos.",
+    "mathematicalFoundation": "N/A",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Impresión de tres cadenas constantes."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Múltiples `print()` generan múltiples líneas.",
+    "cppExplanation": "En C++ encadenar múltiples `std::cout` con `std::endl` crea múltiples líneas."
+  },
+  "starterCodes": {
+    "python": "# PASO 1: Usa un print() para imprimir \"Nombre: Ana\"\n# PASO 2: Usa un segundo print() para imprimir \"Edad: 25\"\n# PASO 3: Usa un tercer print() para imprimir \"Ciudad: México\"\n# Escribe tu código abajo:\n",
+    "cpp": "#include <iostream>\n\nint main() {\n    // Usa std::cout para imprimir las 3 líneas secuencialmente\n    // Tu código va aquí:\n    \n    return 0;\n}"
+  },
+  "solutionReferences": {
+    "python": "print(\"Nombre: Ana\")\nprint(\"Edad: 25\")\nprint(\"Ciudad: México\")",
+    "cpp": "#include <iostream>\n\nint main() {\n    std::cout << \"Nombre: Ana\" << std::endl;\n    std::cout << \"Edad: 25\" << std::endl;\n    std::cout << \"Ciudad: México\" << std::endl;\n    return 0;\n}"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "input": "",
+      "expectedOutput": "Nombre: Ana\nEdad: 25\nCiudad: México\n",
+      "isHidden": false,
+      "evaluationType": "stdout"
+    },
+    {
+      "id": "tc-2",
+      "input": "",
+      "expectedOutput": "Nombre: Ana\nEdad: 25\nCiudad: México\n",
+      "isHidden": true,
+      "evaluationType": "stdout"
+    }
+  ],
+  "socraticHints": [
+    {"level": 1, "title": "Varias llamadas a print", "prompt": "Necesitas escribir `print()` tres veces diferentes, una en cada línea de tu archivo."},
+    {"level": 2, "title": "Comprueba los textos", "prompt": "Asegúrate de que el texto coincida exactamente, incluyendo espacios y acentos como en 'México'."}
+  ]
+}

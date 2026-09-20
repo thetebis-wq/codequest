@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m2-ex1-variables-tipadas",
+  "level": 21,
+  "title": "Variables con Tipos Obligatorios",
+  "subtitle": "En C++ debes declarar el tipo ANTES de usar cualquier variable",
+  "difficulty": "Fundamento",
+  "xpReward": 40,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "A diferencia de Python, C++ requiere que declares el tipo de cada variable antes de usarla. int para enteros, double para decimales. Tu tarea: declarar y imprimir una edad (int) y un promedio (double).",
+    "learningObjectives": [
+      "Declarar variables con su tipo: int edad = 22;",
+      "Entender los tipos básicos: int, double, bool, char",
+      "Saber que asignar el tipo incorrecto puede causar errores o pérdida de datos",
+      "Comprender que el compilador verifica los tipos en tiempo de compilación"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Tipado Estático: El Compilador es tu Guardián",
+    "mentalModel": "En Python puedes cambiar el tipo de una variable en cualquier momento (tipado dinámico). En C++ el tipo se fija al declarar y no puede cambiar (tipado estático). Es como etiquetar una caja: una vez que dices 'esta caja es para frutas', no puedes meter herramientas — el compilador te lo impediría en el momento de compilar, antes de ejecutar. Esto previene errores en producción.",
+    "mathematicalFoundation": "int ocupa 4 bytes (32 bits) → rango: -2,147,483,648 a 2,147,483,647. double ocupa 8 bytes (64 bits) → precisión de ~15 dígitos decimales (estándar IEEE 754). bool ocupa 1 byte → true (1) o false (0).",
+    "historicalFootnote": "El tipado estático de C++ viene heredado de C (1972). Bjarne Stroustrup añadió la verificación de tipos más estricta al crear C++ para evitar los bugs sutiles que el tipado débil de C permitía.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Declarar e imprimir variables de tipo fijo son operaciones de tiempo constante."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: edad = 22 — Python infiere el tipo automáticamente. type(edad) devuelve <class 'int'>. Puedes reasignar: edad = 'veintidós' sin error. El tipo puede cambiar.",
+    "cppExplanation": "C++: int edad = 22; — debes declarar el tipo explícitamente. El compilador rechaza: edad = 'veintidós' porque es un string, no un int. Protección en tiempo de compilación."
+  },
+  "starterCodes": {
+    "python": "# Equivalente Python (el tipo es inferido):\nedad = 22\npromedio = 9.5\nprint(edad)\nprint(promedio)\n",
+    "cpp": "// MÓDULO 2 C++: Variables con Tipos\n// ====================================\n// En C++ DEBES declarar el tipo antes del nombre:\n//   int nombre_variable = valor;    <- para enteros\n//   double nombre_variable = valor; <- para decimales\n//\n// TIPOS BÁSICOS:\n//   int    -> números enteros: -2, 0, 22, 1000\n//   double -> números con decimales: 3.14, 9.5, -0.001\n//   bool   -> verdadero/falso: true, false\n//   char   -> un carácter: 'A', 'z', '9'\n//\n// PASO 1: Escribe #include <iostream>\n// PASO 2: int main() {\n// PASO 3: Declara: int edad = 22;\n// PASO 4: Declara: double promedio = 9.5;\n// PASO 5: std::cout << edad << \"\\n\";\n// PASO 6: std::cout << promedio << \"\\n\";\n// PASO 7: return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "edad = 22\npromedio = 9.5\nprint(edad)\nprint(promedio)\n",
+    "cpp": "#include <iostream>\n\nint main() {\n    int edad = 22;\n    double promedio = 9.5;\n    std::cout << edad << \"\\n\";\n    std::cout << promedio << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir '22' y luego '9.5'",
+      "input": "",
+      "expectedOutput": "22\n9.5",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "22\n9.5",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Qué tipo necesita cada variable?",
+      "prompt": "22 es un número entero → usa 'int'. 9.5 es un número decimal → usa 'double'. La sintaxis es: tipo nombre = valor; ¿Cómo declararías ambas variables?"
+    },
+    {
+      "level": 2,
+      "title": "¿Dónde van las declaraciones?",
+      "prompt": "Las declaraciones van DENTRO de int main() { }, después de la llave de apertura. Cada una en su propia línea y terminando con punto y coma ;"
+    },
+    {
+      "level": 3,
+      "title": "¿Por qué cout muestra 9.5 sin formato extra?",
+      "prompt": "std::cout << 9.5 imprime '9.5' directamente. Si ves '9.50000', necesitas std::fixed con std::setprecision. Pero para este ejercicio, 9.5 ya es correcto sin formato adicional."
+    }
+  ]
+}

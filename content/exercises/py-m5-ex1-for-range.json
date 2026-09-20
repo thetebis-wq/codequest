@@ -1,0 +1,81 @@
+{
+  "id": "py-m5-ex1-for-range",
+  "level": 14,
+  "title": "Repite con for y range()",
+  "subtitle": "Ejecuta código múltiples veces sin escribirlo repetidamente",
+  "difficulty": "Fundamento",
+  "xpReward": 70,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "Un bucle for repite un bloque de código un número fijo de veces. Usa range() para generar una secuencia de números. Tu tarea: imprimir los números del 1 al 5, cada uno en su propia línea.",
+    "learningObjectives": [
+      "Entender qué es un bucle y para qué sirve",
+      "Usar for ... in range() para repetir código",
+      "Saber que range(1, 6) genera los números 1, 2, 3, 4, 5",
+      "Comprender que la variable del bucle toma cada valor en secuencia"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "El Bucle for: Tu Asistente que Repite Tareas",
+    "mentalModel": "Imagina que tienes que poner un sello en 100 sobres. En vez de escribir 'poner sello' 100 veces, le dices a tu asistente: 'para cada sobre del 1 al 100, pon un sello'. Eso es exactamente lo que hace un bucle for: ejecuta la misma instrucción para cada elemento de una secuencia.",
+    "mathematicalFoundation": "range(inicio, fin) genera la secuencia [inicio, inicio+1, ..., fin-1]. El valor 'fin' NO se incluye. range(1, 6) → [1, 2, 3, 4, 5]. range(5) es igual a range(0, 5) → [0, 1, 2, 3, 4].",
+    "historicalFootnote": "Los bucles son fundamentales desde los primeros lenguajes de programación en los años 1950. Sin ellos, habría que copiar y pegar el mismo código miles de veces.",
+    "asymptoticComplexity": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "proofExplanation": "El bucle ejecuta exactamente n iteraciones. No usa memoria adicional que crezca con n."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python usa 'for variable in secuencia:' — la variable toma automáticamente cada valor de la secuencia. La indentación (4 espacios) define el bloque que se repite.",
+    "cppExplanation": "En C++: for (int i = 1; i <= 5; i++) { } — tres partes: inicialización (int i=1), condición (i<=5), incremento (i++). Más verbose pero más explícito."
+  },
+  "starterCodes": {
+    "python": "# MÓDULO 5: Bucles con for y range()\n# =====================================\n# Un bucle for repite código para cada elemento de una secuencia.\n# Sintaxis:\n#   for variable in range(inicio, fin):\n#       código_que_se_repite  <- ¡4 espacios de indentación!\n#\n# IMPORTANTE: range(1, 6) genera: 1, 2, 3, 4, 5  (el 6 NO se incluye)\n#\n# PASO 1: Escribe el bucle for usando range(1, 6)\n# PASO 2: Dentro del bucle (con 4 espacios), escribe print(i)\n# Tu código va aquí:\n",
+    "cpp": "// En C++ el mismo bucle se escribe así (como referencia):\n// #include <iostream>\n// int main() {\n//     for (int i = 1; i <= 5; i++) {\n//         std::cout << i << \"\\n\";\n//     }\n//     return 0;\n// }\n"
+  },
+  "solutionReferences": {
+    "python": "for i in range(1, 6):\n    print(i)\n",
+    "cpp": "#include <iostream>\nint main() {\n    for (int i = 1; i <= 5; i++) {\n        std::cout << i << \"\\n\";\n    }\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Imprime los números del 1 al 5 en líneas separadas",
+      "input": "",
+      "expectedOutput": "1\n2\n3\n4\n5",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta: misma salida esperada",
+      "input": "",
+      "expectedOutput": "1\n2\n3\n4\n5",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Qué genera range()?",
+      "prompt": "Si escribes range(1, 6), ¿qué números crees que genera? Prueba a imprimir list(range(1, 6)) para verlos."
+    },
+    {
+      "level": 2,
+      "title": "La indentación es obligatoria",
+      "prompt": "En Python, el código dentro del bucle DEBE tener 4 espacios de sangría. ¿Qué pasa si escribes print(i) sin los 4 espacios al inicio?"
+    },
+    {
+      "level": 3,
+      "title": "¿Por qué range(1, 6) y no range(1, 5)?",
+      "prompt": "range(inicio, fin) incluye 'inicio' pero EXCLUYE 'fin'. Para obtener del 1 al 5, el fin debe ser 6. ¿Puedes verificarlo con range(1, 6)?"
+    }
+  ]
+}

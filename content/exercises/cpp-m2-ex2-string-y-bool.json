@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m2-ex2-string-y-bool",
+  "level": 21,
+  "title": "Texto y Booleanos en C++",
+  "subtitle": "std::string para texto, bool para verdadero/falso",
+  "difficulty": "Fundamento",
+  "xpReward": 50,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "std::string almacena texto y requiere #include <string>. bool almacena true o false. std::boolalpha hace que cout imprima 'true'/'false' en texto. Tu tarea: declarar un string y un bool e imprimirlos.",
+    "learningObjectives": [
+      "Usar std::string para texto con #include <string>",
+      "Declarar variables bool con valores true/false (minúsculas en C++)",
+      "Usar std::boolalpha para imprimir 'true'/'false' en vez de 1/0",
+      "Entender que los strings en C++ necesitan comillas dobles, los char comillas simples"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Strings y Booleanos: Texto y Lógica en C++",
+    "mentalModel": "En C++ un char es UN solo carácter ('A'). Un string es una secuencia de chars (\"Hola\"). bool es el tipo más pequeño: solo puede ser true (1) o false (0). Por defecto cout imprime bool como 1 o 0 — para ver 'true'/'false' en texto necesitas activar std::boolalpha como un 'modo' del stream.",
+    "mathematicalFoundation": "std::string internamente es un array dinámico de char. bool en C++ es técnicamente un entero: cualquier valor != 0 es true, 0 es false. std::boolalpha solo cambia cómo cout FORMATEA la salida.",
+    "historicalFootnote": "El tipo bool no existía en C original — se usaba int (0/1). C++ 98 introdujo bool como tipo nativo. Python siempre tuvo bool como clase derivada de int (True == 1, False == 0).",
+    "asymptoticComplexity": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "proofExplanation": "Imprimir un string de longitud n es O(n). El bool es O(1)."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: lenguaje = 'C++ 20' (str automático). es_compilado = True (bool con T mayúscula). print(True) → imprime 'True'. No necesitas configuración extra.",
+    "cppExplanation": "C++: std::string lenguaje = \"C++ 20\"; (requiere #include <string>). bool es_compilado = true; (minúscula). std::cout << std::boolalpha << es_compilado; → imprime 'true'."
+  },
+  "starterCodes": {
+    "python": "# Python equivalente:\nlenguaje = 'C++ 20'\nes_compilado = True\nprint(lenguaje)\nprint(es_compilado)  # imprime True (con mayúscula en Python)\n",
+    "cpp": "// MÓDULO 2 C++: String y Bool\n// =============================\n// Para usar texto necesitas incluir <string>:\n//   #include <string>\n//   std::string mi_texto = \"Hola mundo\";\n//\n// bool solo puede ser true o false (minúsculas en C++):\n//   bool activo = true;\n//\n// Para imprimir bool como texto (no como 0/1):\n//   std::cout << std::boolalpha << mi_bool;\n//\n// PASO 1: #include <iostream> y #include <string>\n// PASO 2: int main() {\n// PASO 3: std::string lenguaje = \"C++ 20\";\n// PASO 4: bool es_compilado = true;\n// PASO 5: std::cout << lenguaje << \"\\n\";\n// PASO 6: std::cout << std::boolalpha << es_compilado << \"\\n\";\n// PASO 7: return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "lenguaje = 'C++ 20'\nes_compilado = True\nprint(lenguaje)\nprint(str(es_compilado).lower())  # true (minúscula para coincidir con C++)\n",
+    "cpp": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string lenguaje = \"C++ 20\";\n    bool es_compilado = true;\n    std::cout << lenguaje << \"\\n\";\n    std::cout << std::boolalpha << es_compilado << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir 'C++ 20' y luego 'true'",
+      "input": "",
+      "expectedOutput": "C++ 20\ntrue",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "C++ 20\ntrue",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Olvidaste incluir <string>?",
+      "prompt": "std::string requiere #include <string> además de #include <iostream>. Sin ese include, el compilador no reconoce std::string. ¿Tienes ambos includes al inicio?"
+    },
+    {
+      "level": 2,
+      "title": "bool en C++ usa minúsculas",
+      "prompt": "En Python es 'True' (mayúscula). En C++ es 'true' (minúscula). bool es_compilado = True; daría error en C++. ¿Tu bool usa 'true' en minúscula?"
+    },
+    {
+      "level": 3,
+      "title": "¿Por qué std::boolalpha?",
+      "prompt": "Sin boolalpha: cout << true imprime '1'. Con boolalpha: cout << std::boolalpha << true imprime 'true'. La prueba espera 'true' en texto. ¿Tienes std::boolalpha antes de imprimir el bool?"
+    }
+  ]
+}

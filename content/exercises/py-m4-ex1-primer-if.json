@@ -1,0 +1,64 @@
+{
+  "id": "py-m4-ex1-primer-if",
+  "level": 13,
+  "title": "Tu Primera Decisión: if/else",
+  "subtitle": "Haz que tu programa tome decisiones según condiciones",
+  "difficulty": "Fundamento",
+  "xpReward": 60,
+  "entryFunctionName": null,
+  "evaluationType": "stdout",
+  "spec": {
+    "summary": "Escribe un programa que evalúe si temperatura = 35. Si temperatura > 30, imprime 'Hace calor'. De lo contrario, imprime 'Temperatura agradable'.",
+    "learningObjectives": [
+      "Usar sentencias if/else para tomar decisiones",
+      "Entender la importancia de la indentación en Python"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Tomando Caminos Diferentes",
+    "mentalModel": "El 'if' permite que el programa decida qué hacer. Imagina llegar a una bifurcación en el camino. Si se cumple una condición, vas por el camino A (bloque if). Si no, vas por el camino B (bloque else).",
+    "mathematicalFoundation": "Lógica booleana donde una expresión se evalúa como Verdadera (True) o Falsa (False).",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Las evaluaciones de condiciones básicas toman tiempo constante."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python usa indentación (espacios al inicio de la línea) y dos puntos `:` para definir qué código pertenece al if o al else.",
+    "cppExplanation": "C++ usa llaves `{}` para envolver el código que pertenece a un bloque condicional."
+  },
+  "starterCodes": {
+    "python": "# PASO 1: Define temperatura = 35\n# PASO 2: Escribe 'if temperatura > 30:'\n# PASO 3: (Agrega 4 espacios) Escribe print('Hace calor')\n# PASO 4: Escribe 'else:' (sin espacios al inicio)\n# PASO 5: (Agrega 4 espacios) Escribe print('Temperatura agradable')\n# Tu código va aquí:\n",
+    "cpp": "#include <iostream>\n\nint main() {\n    // Escribe un if / else para evaluar si la temperatura es mayor a 30\n    // Tu código va aquí:\n    \n    return 0;\n}"
+  },
+  "solutionReferences": {
+    "python": "temperatura = 35\nif temperatura > 30:\n    print('Hace calor')\nelse:\n    print('Temperatura agradable')",
+    "cpp": "#include <iostream>\n\nint main() {\n    int temperatura = 35;\n    if (temperatura > 30) {\n        std::cout << \"Hace calor\" << std::endl;\n    } else {\n        std::cout << \"Temperatura agradable\" << std::endl;\n    }\n    return 0;\n}"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "input": "",
+      "expectedOutput": "Hace calor\n",
+      "isHidden": false,
+      "evaluationType": "stdout"
+    },
+    {
+      "id": "tc-2",
+      "input": "",
+      "expectedOutput": "Hace calor\n",
+      "isHidden": true,
+      "evaluationType": "stdout"
+    }
+  ],
+  "socraticHints": [
+    {"level": 1, "title": "La regla de los dos puntos", "prompt": "No olvides incluir el símbolo de dos puntos `:` justo después de tu condición, es obligatorio."},
+    {"level": 2, "title": "Espacios importantes", "prompt": "Asegúrate de poner 4 espacios antes de llamar a `print()`. Python es muy estricto con los espacios al principio de las líneas."}
+  ]
+}

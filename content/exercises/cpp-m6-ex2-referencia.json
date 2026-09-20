@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m6-ex2-referencia",
+  "level": 25,
+  "title": "Paso por Valor vs Paso por Referencia",
+  "subtitle": "El símbolo & cambia todo: original vs copia",
+  "difficulty": "Intermedio",
+  "xpReward": 100,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "Por defecto C++ pasa una COPIA del valor a las funciones (paso por valor). Con & pasa la variable ORIGINAL (paso por referencia). Modificar la copia no afecta el original; modificar la referencia sí. Tu tarea: demostrar la diferencia.",
+    "learningObjectives": [
+      "Entender que sin & la función recibe una copia",
+      "Usar & en el parámetro para recibir la variable original",
+      "Ver que cambios en una referencia afectan la variable original",
+      "Saber cuándo usar paso por valor vs por referencia"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Referencias: El Original, No la Fotocopia",
+    "mentalModel": "Paso por valor = fotocopias el documento y le das la copia al asistente. Puede escribir en ella, pero tu original no cambia. Paso por referencia (&) = le das el documento ORIGINAL. Cualquier cambio que haga afecta directamente tu documento. Las referencias son como alias — otro nombre para la misma variable en memoria.",
+    "mathematicalFoundation": "En memoria: paso por valor copia todos los bytes del objeto a un nuevo espacio. Paso por referencia pasa solo la dirección de memoria (un puntero de 8 bytes en 64 bits). Para objetos grandes, la referencia es mucho más eficiente.",
+    "historicalFootnote": "El paso por referencia en C++ fue una mejora sobre los punteros de C (que hacen lo mismo pero con sintaxis *p menos segura). Las referencias en C++ no pueden ser null ni redirigidas, haciéndolas más seguras que los punteros.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Pasar por referencia es O(1) — solo se pasa una dirección de 8 bytes independientemente del tamaño del objeto."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python usa 'paso por asignación de objeto': los objetos mutables (listas, dicts) se modifican in-place. Los inmutables (int, str) no. No hay equivalente directo a &, pero puedes simular con listas de un elemento.",
+    "cppExplanation": "C++: void incrementar(int& valor) { valor++; } — el & en el tipo del parámetro indica referencia. La función modifica directamente la variable original. Sin &: void incrementar(int valor) { valor++; } no modifica nada fuera."
+  },
+  "starterCodes": {
+    "python": "# Python no tiene paso por referencia para int directamente\n# Se simula con lista:\ndef incrementar(ref):\n    ref[0] += 1\n\nx = [5]  # lista de un elemento\nincrementar(x)\nprint(x[0])  # 6\n",
+    "cpp": "// MÓDULO 6 C++: Paso por Referencia\n// ====================================\n// Sin &: la función recibe una COPIA (no modifica el original)\n//   void funcion(int valor) { valor++; }  // no afecta al original\n//\n// Con &: la función recibe el ORIGINAL (modifica el original)\n//   void funcion(int& valor) { valor++; } // ¡SÍ afecta al original!\n//\n// PASO 1: #include <iostream>\n// PASO 2: Define: void incrementar(int& valor) {\n// PASO 3:            valor++;   <- incrementa el ORIGINAL\n//                 }\n// PASO 4: int main() {\n// PASO 5:   int x = 5;\n// PASO 6:   incrementar(x);        <- pasa el original\n// PASO 7:   std::cout << x << \"\\n\";  <- debe imprimir 6\n// PASO 8:   return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "def incrementar(ref):\n    ref[0] += 1\n\nx = [5]\nincrementar(x)\nprint(x[0])\n",
+    "cpp": "#include <iostream>\n\nvoid incrementar(int& valor) {\n    valor++;\n}\n\nint main() {\n    int x = 5;\n    incrementar(x);\n    std::cout << x << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "x empieza en 5, incrementar(x) lo hace 6",
+      "input": "",
+      "expectedOutput": "6",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "6",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Dónde va el símbolo &?",
+      "prompt": "El & va en la DECLARACIÓN del parámetro en la función: void incrementar(int& valor). No en la llamada: incrementar(x) — aquí no va &. ¿Tienes el & en la definición de incrementar?"
+    },
+    {
+      "level": 2,
+      "title": "¿void significa qué?",
+      "prompt": "void es el tipo de retorno que significa 'no retorna nada'. Una función void no necesita 'return' (o puede tener 'return;' vacío). ¿Tu función incrementar declara 'void' como tipo de retorno?"
+    },
+    {
+      "level": 3,
+      "title": "¿Por qué la salida es 6 y no 5?",
+      "prompt": "Con paso por referencia, valor++ dentro de incrementar modifica el x ORIGINAL de main. Por eso después de llamar incrementar(x), x vale 6, no 5. Si quitaras el &, x seguiría siendo 5. ¿Entiendes por qué?"
+    }
+  ]
+}

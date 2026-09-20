@@ -1,0 +1,81 @@
+{
+  "id": "py-m7-ex1-listas",
+  "level": 16,
+  "title": "Listas: Tu Primera Colección",
+  "subtitle": "Guarda múltiples valores en una sola variable",
+  "difficulty": "Fundamento",
+  "xpReward": 90,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "Una lista almacena múltiples valores en orden. Se accede por índice (empezando en 0). append() agrega al final, len() da la longitud. Tu tarea: crear una lista de frutas, agregar una más, e imprimir el tamaño y el primer elemento.",
+    "learningObjectives": [
+      "Crear una lista con valores iniciales usando []",
+      "Acceder a elementos por índice (empezando en 0)",
+      "Agregar elementos con .append()",
+      "Obtener la longitud con len()"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(n)"
+    }
+  },
+  "theory": {
+    "title": "Listas: Un Estante Numerado de Valores",
+    "mentalModel": "Imagina un estante con casillas numeradas empezando en 0. La casilla 0 tiene el primer elemento, la casilla 1 el segundo, etc. Puedes agregar más casillas al final con append(). len() te dice cuántas casillas hay en total.",
+    "mathematicalFoundation": "Las listas son estructuras de datos de acceso aleatorio O(1): acceder a cualquier elemento por índice es instantáneo sin importar el tamaño. Agregar al final (append) es O(1) amortizado.",
+    "historicalFootnote": "Las listas (arrays) son la estructura de datos más fundamental de la computación. Los primeros programas de los años 40 usaban arrays en tarjetas perforadas para almacenar series de datos.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(n)",
+      "proofExplanation": "Acceder por índice y append son O(1). La lista usa O(n) memoria para n elementos."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: frutas = ['manzana', 'naranja']. Las listas son dinámicas, pueden crecer, y mezclar tipos. frutas[0] da el primer elemento.",
+    "cppExplanation": "C++ tiene std::vector<string> frutas; con push_back() para agregar. También arrays nativos de tamaño fijo: string frutas[3] = {\"manzana\", \"naranja\", \"uva\"}."
+  },
+  "starterCodes": {
+    "python": "# MÓDULO 7: Listas - Colecciones de Valores\n# ==========================================\n# Una lista guarda múltiples valores en orden.\n# Sintaxis: mi_lista = [valor1, valor2, valor3]\n# Acceso: mi_lista[0]  <- primer elemento (índice 0)\n#         mi_lista[1]  <- segundo elemento (índice 1)\n# Agregar: mi_lista.append(nuevo_valor)\n# Longitud: len(mi_lista)\n#\n# PASO 1: Crea la lista frutas con 3 frutas:\n#   frutas = ['manzana', 'naranja', 'uva']\n# PASO 2: Agrega 'mango' usando .append()\n#   frutas.append('mango')\n# PASO 3: Imprime el tamaño: print(len(frutas))  <- debe ser 4\n# PASO 4: Imprime el primer elemento: print(frutas[0])  <- 'manzana'\n# Tu código va aquí:\n",
+    "cpp": "// std::vector<std::string> frutas = {\"manzana\", \"naranja\", \"uva\"};\n// frutas.push_back(\"mango\");\n// std::cout << frutas.size() << \"\\n\" << frutas[0] << \"\\n\";\n"
+  },
+  "solutionReferences": {
+    "python": "frutas = ['manzana', 'naranja', 'uva']\nfrutas.append('mango')\nprint(len(frutas))\nprint(frutas[0])\n",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\nint main() {\n    std::vector<std::string> frutas = {\"manzana\", \"naranja\", \"uva\"};\n    frutas.push_back(\"mango\");\n    std::cout << frutas.size() << \"\\n\" << frutas[0] << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir 4 (tamaño) y luego 'manzana' (primer elemento)",
+      "input": "",
+      "expectedOutput": "4\nmanzana",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta del mismo resultado",
+      "input": "",
+      "expectedOutput": "4\nmanzana",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Cómo se crea una lista?",
+      "prompt": "Para crear una lista con 3 frutas, usa corchetes []: frutas = ['manzana', 'naranja', 'uva']. ¿Qué hay entre cada fruta?"
+    },
+    {
+      "level": 2,
+      "title": "Los índices empiezan en 0",
+      "prompt": "Si frutas = ['manzana', 'naranja', 'uva', 'mango'], ¿qué valor tiene frutas[0]? ¿Y frutas[3]? ¿Cuál es el índice del último elemento?"
+    },
+    {
+      "level": 3,
+      "title": "append agrega al final",
+      "prompt": "frutas.append('mango') agrega 'mango' al FINAL de la lista. Después de esto, ¿cuántos elementos tiene frutas? ¿Cómo lo verificas con len()?"
+    }
+  ]
+}

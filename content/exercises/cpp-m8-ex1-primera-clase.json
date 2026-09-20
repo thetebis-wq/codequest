@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m8-ex1-primera-clase",
+  "level": 27,
+  "title": "Tu Primera Clase en C++",
+  "subtitle": "class, public:, constructor y objetos",
+  "difficulty": "Intermedio",
+  "xpReward": 110,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "Una clase en C++ define un tipo con datos (atributos) y funciones (métodos). El constructor tiene el mismo nombre que la clase. 'public:' hace los miembros accesibles desde fuera. Tu tarea: definir clase Persona, crear un objeto e imprimir sus atributos.",
+    "learningObjectives": [
+      "Definir una clase con class { public: atributos; constructor; };",
+      "Entender que el constructor tiene el mismo nombre que la clase (no __init__)",
+      "Crear un objeto: Persona p('María', 30);",
+      "Acceder a atributos con p.nombre, p.edad"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Clases en C++: Más Explícito que Python",
+    "mentalModel": "Una clase C++ es un plano más detallado que en Python: debes especificar quién puede acceder a qué (public/private), el tipo de cada atributo, y el tipo de cada parámetro del constructor. public: significa 'accesible desde fuera de la clase'. private: (por defecto) significa 'solo accesible desde dentro'. La clase termina con punto y coma ;.",
+    "mathematicalFoundation": "El encapsulamiento (public/private) es un contrato de interfaz: define qué operaciones están permitidas sobre el objeto. Viola la encapsulación y el comportamiento del sistema se vuelve impredecible — las invariantes del objeto se rompen.",
+    "historicalFootnote": "Bjarne Stroustrup diseñó C++ basándose en Simula 67, que fue el primer lenguaje con clases. Stroustrup añadió el sistema de tipos estático y el control de acceso (public/private) para combinar la eficiencia de C con la abstracción de Simula.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Crear un objeto y acceder a sus atributos son operaciones de tiempo constante."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: class Persona: def __init__(self, nombre, edad): self.nombre = nombre; self.edad = edad. Todo es public por defecto. 'self' es explícito. El constructor se llama __init__.",
+    "cppExplanation": "C++: class Persona { public: string nombre; int edad; Persona(string n, int e) { nombre=n; edad=e; } }; — sin __init__, sin self. El constructor se llama igual que la clase. La definición termina con ;"
+  },
+  "starterCodes": {
+    "python": "# Python equivalente:\nclass Persona:\n    def __init__(self, nombre, edad):\n        self.nombre = nombre\n        self.edad = edad\n\npersona1 = Persona('María', 30)\nprint(persona1.nombre)\nprint(persona1.edad)\n",
+    "cpp": "// MÓDULO 8 C++: Tu Primera Clase\n// ================================\n// Sintaxis de clase en C++:\n//   class NombreClase {\n//   public:                    <- todo lo de abajo es accesible desde fuera\n//       tipo atributo1;        <- declaración de atributo\n//       tipo atributo2;\n//\n//       NombreClase(tipo p1, tipo p2) {  <- constructor (mismo nombre que clase)\n//           atributo1 = p1;              <- sin 'self', acceso directo\n//           atributo2 = p2;\n//       }\n//   };                         <- ¡la clase termina con punto y coma!\n//\n// Crear un objeto:\n//   NombreClase objeto(arg1, arg2);\n//\n// PASO 1: #include <iostream> y #include <string>\n// PASO 2: Define la clase Persona con string nombre; int edad; y constructor\n// PASO 3: int main() {\n// PASO 4: Persona p(\"María\", 30);\n// PASO 5: std::cout << p.nombre << \"\\n\";\n// PASO 6: std::cout << p.edad << \"\\n\";\n// PASO 7: return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "class Persona:\n    def __init__(self, nombre, edad):\n        self.nombre = nombre\n        self.edad = edad\n\npersona1 = Persona('María', 30)\nprint(persona1.nombre)\nprint(persona1.edad)\n",
+    "cpp": "#include <iostream>\n#include <string>\n\nclass Persona {\npublic:\n    std::string nombre;\n    int edad;\n\n    Persona(std::string n, int e) {\n        nombre = n;\n        edad = e;\n    }\n};\n\nint main() {\n    Persona p(\"María\", 30);\n    std::cout << p.nombre << \"\\n\";\n    std::cout << p.edad << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir 'María' y luego '30'",
+      "input": "",
+      "expectedOutput": "María\n30",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "María\n30",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿El punto y coma al final de la clase?",
+      "prompt": "En C++, la definición de la clase TERMINA con }; (llave más punto y coma). Sin el ; el compilador dará un error extraño. ¿Tienes el punto y coma después de la llave de cierre de la clase?"
+    },
+    {
+      "level": 2,
+      "title": "¿El constructor tiene el mismo nombre que la clase?",
+      "prompt": "El constructor en C++ se llama igual que la clase: class Persona → constructor Persona(...). No se llama __init__ como en Python. ¿Tu constructor se llama Persona(...)?"
+    },
+    {
+      "level": 3,
+      "title": "¿public: antes de los atributos?",
+      "prompt": "Sin 'public:', los atributos son privados por defecto y no podrías acceder a p.nombre desde main(). Escribe 'public:' dentro de la clase, antes de declarar nombre y edad. ¿Lo tienes?"
+    }
+  ]
+}

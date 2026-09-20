@@ -1,0 +1,97 @@
+{
+  "id": "py-m6-ex2-funcion-calculo",
+  "level": 15,
+  "title": "Funciones con Múltiples Parámetros",
+  "subtitle": "Crea una calculadora de área con varios datos de entrada",
+  "difficulty": "Fundamento",
+  "xpReward": 90,
+  "entryFunctionName": "calcular_area_rectangulo",
+  "spec": {
+    "summary": "Las funciones pueden recibir múltiples parámetros separados por comas. Tu tarea: definir 'calcular_area_rectangulo(base, altura)' que retorne base multiplicada por altura.",
+    "learningObjectives": [
+      "Definir funciones con múltiples parámetros",
+      "Entender el alcance local: variables dentro de una función no existen fuera",
+      "Reutilizar una función con distintos argumentos",
+      "Distinguir parámetros (en la definición) de argumentos (al llamar)"
+    ],
+    "constraints": {
+      "inputRange": "Números positivos",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Parámetros: Los Ingredientes de tu Función",
+    "mentalModel": "Una función de área es como una receta: 'para calcular el área de un rectángulo necesitas: base y altura. Multiplícalas'. Los parámetros son los ingredientes que pides. Puedes hacer el cálculo para cualquier rectángulo sin cambiar la receta.",
+    "mathematicalFoundation": "Área de rectángulo = base × altura. La función encapsula esta fórmula y la hace reutilizable para cualquier par (base, altura).",
+    "historicalFootnote": "El concepto de función con parámetros viene de la matemática del siglo XVII. Leibniz y Newton los usaban para describir cambios en física antes de que existieran las computadoras.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Una multiplicación es O(1). No importan los valores de base y altura."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "def calcular_area_rectangulo(base, altura): — Python no requiere declarar los tipos. La función acepta cualquier número (int o float).",
+    "cppExplanation": "double calcular_area_rectangulo(double base, double altura) { return base * altura; } — C++ requiere el tipo de cada parámetro y del valor de retorno."
+  },
+  "starterCodes": {
+    "python": "# MÓDULO 6: Funciones con Múltiples Parámetros\n# =============================================\n# Una función puede recibir varios ingredientes (parámetros).\n# Sintaxis con 2 parámetros:\n#   def nombre(parametro1, parametro2):\n#       return calculo_con_los_dos\n#\n# PASO 1: Define la función con los parámetros correctos:\n#   def calcular_area_rectangulo(base, altura):\n# PASO 2:   (4 espacios) return el resultado de multiplicar base por altura\n# Tu código va aquí:\n",
+    "cpp": "// double calcular_area_rectangulo(double base, double altura) {\n//     return base * altura;\n// }\n"
+  },
+  "solutionReferences": {
+    "python": "def calcular_area_rectangulo(base, altura):\n    return base * altura\n",
+    "cpp": "#include <iostream>\ndouble calcular_area_rectangulo(double base, double altura) {\n    return base * altura;\n}\nint main() {\n    std::cout << calcular_area_rectangulo(5, 3) << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "calcular_area_rectangulo(5, 3) debe retornar 15",
+      "input": "5, 3",
+      "expectedOutput": "15",
+      "evaluationType": "function_return",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "calcular_area_rectangulo(10, 2) debe retornar 20",
+      "input": "10, 2",
+      "expectedOutput": "20",
+      "evaluationType": "function_return",
+      "isHidden": false
+    },
+    {
+      "id": "tc-3",
+      "description": "calcular_area_rectangulo(1, 1) debe retornar 1",
+      "input": "1, 1",
+      "expectedOutput": "1",
+      "evaluationType": "function_return",
+      "isHidden": true
+    },
+    {
+      "id": "tc-4",
+      "description": "calcular_area_rectangulo(7, 4) debe retornar 28",
+      "input": "7, 4",
+      "expectedOutput": "28",
+      "evaluationType": "function_return",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Cuántos parámetros necesitas?",
+      "prompt": "Para calcular el área de un rectángulo necesitas dos datos: base y altura. ¿Cómo escribes dos parámetros en la definición de una función Python?"
+    },
+    {
+      "level": 2,
+      "title": "¿Qué operación calcula el área?",
+      "prompt": "El área de un rectángulo es base × altura. En Python, ¿cuál es el operador de multiplicación?"
+    },
+    {
+      "level": 3,
+      "title": "¿Retornas o imprimes?",
+      "prompt": "Las pruebas esperan que la función RETORNE el valor (no lo imprima). ¿Usas return o print dentro de la función? ¿Cuál es la diferencia?"
+    }
+  ]
+}

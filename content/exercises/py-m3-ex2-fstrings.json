@@ -1,0 +1,57 @@
+{
+  "id": "py-m3-ex2-fstrings",
+  "level": 12,
+  "title": "Mensajes Dinámicos con f-strings",
+  "subtitle": "Combina texto y variables para crear mensajes personalizados",
+  "difficulty": "Fundamento",
+  "xpReward": 60,
+  "entryFunctionName": null,
+  "evaluationType": "stdout",
+  "spec": {
+    "summary": "Dado nombre='Carlos' y edad=28, imprime exactamente el siguiente mensaje: 'Hola Carlos, tienes 28 años y en 10 años tendrás 38 años.'",
+    "learningObjectives": [
+      "Entender cómo inyectar variables en cadenas de texto",
+      "Usar f-strings en Python para crear mensajes dinámicos"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Plantillas de texto",
+    "mentalModel": "Los f-strings son como los formularios de \"rellena los espacios en blanco\". La 'f' antes de las comillas significa formato. Las llaves {} le dicen a Python que meta el valor de la variable en ese lugar.",
+    "mathematicalFoundation": "N/A",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Crear una cadena interpolada de longitud constante."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Los f-strings facilitan incrustar valores y expresiones directamente en texto.",
+    "cppExplanation": "En C++ se suelen encadenar partes usando `std::cout << \"Hola \" << nombre << \", ...\";` o se usa `std::format` (en C++20)."
+  },
+  "starterCodes": {
+    "python": "# PASO 1: Define nombre = 'Carlos'\n# PASO 2: Define edad = 28\n# PASO 3: Usa un f-string para imprimir el mensaje: Hola Carlos, tienes 28 años y en 10 años tendrás 38 años.\n# Pista: Puedes hacer cálculos matemáticos dentro de las llaves, como {edad + 10}\n# Tu código va aquí:\n",
+    "cpp": "#include <iostream>\n#include <string>\n\nint main() {\n    // Define las variables e imprime combinando texto con variables\n    // Tu código va aquí:\n    \n    return 0;\n}"
+  },
+  "solutionReferences": {
+    "python": "nombre = 'Carlos'\nedad = 28\nprint(f'Hola {nombre}, tienes {edad} años y en 10 años tendrás {edad + 10} años.')",
+    "cpp": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string nombre = \"Carlos\";\n    int edad = 28;\n    std::cout << \"Hola \" << nombre << \", tienes \" << edad << \" años y en 10 años tendrás \" << (edad + 10) << \" años.\" << std::endl;\n    return 0;\n}"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "input": "",
+      "expectedOutput": "Hola Carlos, tienes 28 años y en 10 años tendrás 38 años.\n",
+      "isHidden": false,
+      "evaluationType": "stdout"
+    }
+  ],
+  "socraticHints": [
+    {"level": 1, "title": "Sintaxis de f-string", "prompt": "Recuerda que un f-string comienza con la letra f justo antes de las comillas: `f\"texto...\"` o `f'texto...'`."},
+    {"level": 2, "title": "Calculando en el f-string", "prompt": "Dentro del último par de llaves `{}`, puedes poner la operación directamente: `{edad + 10}`."}
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m1-ex2-multiples-salidas",
+  "level": 20,
+  "title": "Múltiples Líneas de Salida en C++",
+  "subtitle": "Imprime varios mensajes usando \\n y std::endl",
+  "difficulty": "Fundamento",
+  "xpReward": 40,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "Puedes imprimir múltiples líneas en C++ usando varias instrucciones cout o usando \\n dentro del string. Tu tarea: imprimir exactamente 3 líneas con información.",
+    "learningObjectives": [
+      "Usar múltiples cout para múltiples líneas",
+      "Entender la diferencia entre \\n y std::endl",
+      "Encadenar salidas con el operador <<",
+      "Comprender que cada instrucción termina con ;"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "std::cout: Tu Altavoz al Mundo",
+    "mentalModel": "std::cout es como un altavoz. << es el gesto de pasar algo al altavoz para que lo diga. Puedes pasarle varias cosas seguidas: cout << 'A' << 'B' << 'C' imprime ABC. \\n es el carácter de nueva línea (como presionar Enter). std::endl hace lo mismo pero además vacía el buffer interno — más lento pero garantiza que el texto aparezca inmediatamente.",
+    "mathematicalFoundation": "La salida en C++ va primero a un buffer (memoria temporal). \\n solo agrega el carácter, std::endl agrega \\n Y llama flush() que vacía el buffer al sistema operativo. Para programas simples, ambos se ven igual.",
+    "historicalFootnote": "El operador << fue redefinido (sobrecargado) para std::cout por Bjarne Stroustrup para hacer la sintaxis de salida más intuitiva. Originalmente << solo era el operador de desplazamiento de bits.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Imprimir strings de longitud fija es O(1)."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: print() agrega automáticamente un salto de línea al final. Para múltiples líneas: 3 llamadas a print(). En C++ debes añadir \\n o std::endl explícitamente.",
+    "cppExplanation": "C++: std::cout << \"texto\" << \"\\n\"; — el \\n es literal dentro del string. Alternativa: std::cout << \"texto\" << std::endl; — más legible pero ligeramente más lento."
+  },
+  "starterCodes": {
+    "python": "# Equivalente Python:\nprint(\"Lenguaje: C++\")\nprint(\"Version: 20\")\nprint(\"Aprendiendo: Hoy\")\n",
+    "cpp": "// MÓDULO 1 C++: Múltiples Líneas de Salida\n// ==========================================\n// Dos formas de agregar salto de línea:\n//   << \"\\n\"      (más rápido, solo el carácter)\n//   << std::endl  (más lento, también vacía el buffer)\n//\n// PASO 1: Escribe #include <iostream>\n// PASO 2: Escribe int main() {\n// PASO 3: Imprime la primera línea:\n//             std::cout << \"Lenguaje: C++\" << \"\\n\";\n// PASO 4: Imprime la segunda línea:\n//             std::cout << \"Version: 20\" << \"\\n\";\n// PASO 5: Imprime la tercera línea:\n//             std::cout << \"Aprendiendo: Hoy\" << std::endl;\n// PASO 6: return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "print(\"Lenguaje: C++\")\nprint(\"Version: 20\")\nprint(\"Aprendiendo: Hoy\")\n",
+    "cpp": "#include <iostream>\n\nint main() {\n    std::cout << \"Lenguaje: C++\" << \"\\n\";\n    std::cout << \"Version: 20\" << \"\\n\";\n    std::cout << \"Aprendiendo: Hoy\" << std::endl;\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir las 3 líneas exactas",
+      "input": "",
+      "expectedOutput": "Lenguaje: C++\nVersion: 20\nAprendiendo: Hoy",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "Lenguaje: C++\nVersion: 20\nAprendiendo: Hoy",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Cómo agregar el salto de línea?",
+      "prompt": "En C++, cout NO agrega automáticamente un salto de línea. Debes agregarlo tú con << \"\\n\" o << std::endl al final de cada línea. ¿Los tienes en tus cout?"
+    },
+    {
+      "level": 2,
+      "title": "¿Un cout o tres?",
+      "prompt": "Puedes usar un cout por línea: cout << \"Línea 1\" << \"\\n\"; cout << \"Línea 2\" << \"\\n\"; O uno solo: cout << \"Línea 1\\nLínea 2\\n\"; Ambos funcionan. ¿Cuál prefieres?"
+    },
+    {
+      "level": 3,
+      "title": "¿El punto y coma falta?",
+      "prompt": "Cada instrucción en C++ DEBE terminar con ;. Si falta, el compilador dará un error. Revisa que cada cout y el return 0 tengan ; al final."
+    }
+  ]
+}

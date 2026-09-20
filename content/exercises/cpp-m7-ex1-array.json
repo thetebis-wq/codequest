@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m7-ex1-array",
+  "level": 26,
+  "title": "Arrays de Tamaño Fijo",
+  "subtitle": "Colecciones con tamaño definido en tiempo de compilación",
+  "difficulty": "Intermedio",
+  "xpReward": 90,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "Un array nativo de C++ almacena elementos del mismo tipo con tamaño fijo. El tamaño se define al crear el array y no puede cambiar. Tu tarea: declarar un array de 5 enteros e imprimirlos con un for.",
+    "learningObjectives": [
+      "Declarar un array: int numeros[5] = {10, 20, 30, 40, 50};",
+      "Acceder por índice (empieza en 0 igual que Python)",
+      "Iterar sobre un array con un bucle for",
+      "Entender que el tamaño es fijo — no puedes agregar elementos"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(n)"
+    }
+  },
+  "theory": {
+    "title": "Arrays: Memoria Contigua y Acceso Instantáneo",
+    "mentalModel": "Un array es como una fila de casilleros numerados en un vestuario. Todos los casilleros son del mismo tamaño (mismo tipo) y están uno al lado del otro en memoria. El número de casilleros se fija al construir el vestuario (tiempo de compilación) — no puedes agregar más después.",
+    "mathematicalFoundation": "El acceso a array[i] es O(1): la dirección de memoria es dirección_base + i × tamaño_elemento. Para int de 4 bytes: array[3] está en dirección_base + 3×4 = dirección_base + 12. Calculable instantáneamente.",
+    "historicalFootnote": "Los arrays son la estructura de datos más antigua de la computación. Los primeros programas FORTRAN (1957) usaban arrays para cálculos científicos. En C, los arrays son simplemente punteros a memoria contigua.",
+    "asymptoticComplexity": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "proofExplanation": "Imprimir n elementos es O(n). El array usa O(n) memoria."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: lista = [10, 20, 30, 40, 50] — dinámica, puede crecer con append(). No hay tipo fijo. El equivalente más cercano al array nativo de C++ es array('i', [10,20,30,40,50]) del módulo array.",
+    "cppExplanation": "C++: int numeros[5] = {10, 20, 30, 40, 50}; — el [5] es el tamaño fijo. El tipo (int) aplica a todos los elementos. Para arrays dinámicos usa std::vector (módulo siguiente)."
+  },
+  "starterCodes": {
+    "python": "# Python equivalente (lista dinámica):\nnumeros = [10, 20, 30, 40, 50]\nfor n in numeros:\n    print(n)\n",
+    "cpp": "// MÓDULO 7 C++: Arrays de Tamaño Fijo\n// ======================================\n// Declarar un array:\n//   tipo nombre[tamaño] = {val1, val2, val3, ...};\n//   int numeros[5] = {10, 20, 30, 40, 50};\n//\n// Acceso por índice (empieza en 0):\n//   numeros[0] → 10\n//   numeros[4] → 50 (último elemento)\n//\n// Iterar con for:\n//   for (int i = 0; i < 5; i++) {\n//       std::cout << numeros[i] << \"\\n\";\n//   }\n//\n// PASO 1: #include <iostream>\n// PASO 2: int main() {\n// PASO 3: int numeros[5] = {10, 20, 30, 40, 50};\n// PASO 4: for (int i = 0; i < 5; i++) {\n// PASO 5:     std::cout << numeros[i] << \"\\n\";\n// PASO 6: }\n// PASO 7: return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "numeros = [10, 20, 30, 40, 50]\nfor n in numeros:\n    print(n)\n",
+    "cpp": "#include <iostream>\n\nint main() {\n    int numeros[5] = {10, 20, 30, 40, 50};\n    for (int i = 0; i < 5; i++) {\n        std::cout << numeros[i] << \"\\n\";\n    }\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir 10, 20, 30, 40, 50 en líneas separadas",
+      "input": "",
+      "expectedOutput": "10\n20\n30\n40\n50",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "10\n20\n30\n40\n50",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Cómo declarar el array?",
+      "prompt": "La sintaxis es: int numeros[5] = {10, 20, 30, 40, 50}; — primero el tipo (int), luego el nombre, luego [tamaño] entre corchetes, y los valores iniciales entre llaves {}. ¿Tienes esta declaración?"
+    },
+    {
+      "level": 2,
+      "title": "¿La condición del for para 5 elementos?",
+      "prompt": "Si el array tiene 5 elementos (índices 0 al 4), el for debe ir: for (int i = 0; i < 5; i++). Nota: i < 5, no i <= 5 (eso daría 6 iteraciones y accedería fuera del array). ¿Cuál condición usas?"
+    },
+    {
+      "level": 3,
+      "title": "¿numeros[i] para acceder al elemento?",
+      "prompt": "Dentro del for, para acceder al elemento en posición i del array escribe numeros[i]. En la iteración i=0 da 10, i=1 da 20, etc. ¿Tu cout usa numeros[i]?"
+    }
+  ]
+}

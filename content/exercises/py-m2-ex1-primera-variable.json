@@ -1,0 +1,71 @@
+{
+  "id": "py-m2-ex1-primera-variable",
+  "level": 11,
+  "title": "Tu Primera Variable",
+  "subtitle": "Guarda información en la memoria del programa",
+  "difficulty": "Fundamento",
+  "xpReward": 40,
+  "entryFunctionName": null,
+  "evaluationType": "variable_check",
+  "spec": {
+    "summary": "Crea una variable llamada 'edad' con el valor 20, luego imprímela. También crea una variable 'nombre' con el valor 'Estudiante' y luego imprímela.",
+    "learningObjectives": [
+      "Declarar e inicializar variables",
+      "Entender que las variables almacenan datos en la memoria"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Cajas con etiquetas",
+    "mentalModel": "Una variable es como un frasco de vidrio con una etiqueta pegada. La etiqueta es el nombre de la variable y lo que pones dentro del frasco es el valor. Usas el símbolo `=` para guardar algo dentro del frasco.",
+    "mathematicalFoundation": "N/A",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Se crean variables simples en memoria."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "En Python, las variables no necesitan declarar un tipo (tipado dinámico).",
+    "cppExplanation": "En C++, se requiere declarar el tipo de la variable antes de usarla, por ejemplo: `int edad = 20;` y `std::string nombre = \"Estudiante\";`."
+  },
+  "starterCodes": {
+    "python": "# PASO 1: Crea una variable 'edad' y asígnale el número 20\n# PASO 2: Crea una variable 'nombre' y asígnale el texto 'Estudiante'\n# PASO 3: Imprime 'edad'\n# PASO 4: Imprime 'nombre'\n# Tu código va aquí:\n",
+    "cpp": "#include <iostream>\n#include <string>\n\nint main() {\n    // Crea un int 'edad' = 20 y string 'nombre' = \"Estudiante\"\n    // Tu código va aquí:\n    \n    return 0;\n}"
+  },
+  "solutionReferences": {
+    "python": "edad = 20\nnombre = 'Estudiante'\nprint(edad)\nprint(nombre)",
+    "cpp": "#include <iostream>\n#include <string>\n\nint main() {\n    int edad = 20;\n    std::string nombre = \"Estudiante\";\n    std::cout << edad << std::endl;\n    std::cout << nombre << std::endl;\n    return 0;\n}"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "input": "edad",
+      "expectedOutput": "20",
+      "isHidden": false,
+      "evaluationType": "variable_check"
+    },
+    {
+      "id": "tc-2",
+      "input": "nombre",
+      "expectedOutput": "'Estudiante'",
+      "isHidden": false,
+      "evaluationType": "variable_check"
+    },
+    {
+      "id": "tc-3",
+      "input": "edad",
+      "expectedOutput": "20",
+      "isHidden": true,
+      "evaluationType": "variable_check"
+    }
+  ],
+  "socraticHints": [
+    {"level": 1, "title": "Creando variables", "prompt": "Para crear una variable, pon su nombre seguido de `=` y luego su valor. Por ejemplo: `edad = 20`."},
+    {"level": 2, "title": "Imprimiendo variables", "prompt": "No uses comillas al imprimir una variable, de lo contrario imprimirás su nombre y no su valor. Usa `print(edad)` en lugar de `print('edad')`."}
+  ]
+}

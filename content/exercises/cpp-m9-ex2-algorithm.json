@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m9-ex2-algorithm",
+  "level": 28,
+  "title": "Algoritmos con <algorithm>",
+  "subtitle": "sort, min y max: herramientas poderosas listas para usar",
+  "difficulty": "Intermedio",
+  "xpReward": 110,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "#include <algorithm> provee algoritmos estándar listos para usar: std::sort() ordena un vector, std::min()/std::max() dan el mínimo/máximo. Tu tarea: ordenar un vector e imprimir el mínimo, máximo y primer elemento ordenado.",
+    "learningObjectives": [
+      "Incluir <algorithm> para acceder a algoritmos estándar",
+      "Ordenar un vector con std::sort(v.begin(), v.end())",
+      "Usar std::min() y std::max() para encontrar extremos",
+      "Entender que v.begin() y v.end() son iteradores"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(n)"
+    }
+  },
+  "theory": {
+    "title": "<algorithm>: No Reinventes el Ordenamiento",
+    "mentalModel": "Igual que math tiene funciones matemáticas listas, algorithm tiene algoritmos clásicos ya implementados y optimizados. std::sort usa introsort (combinación de quicksort + heapsort + insertion sort) — uno de los mejores algoritmos de ordenamiento conocidos. std::min y std::max son O(1): comparan exactamente dos valores.",
+    "mathematicalFoundation": "std::sort es O(n log n) en todos los casos. Los iteradores begin() y end() apuntan al primer elemento y uno después del último, respectivamente — una convención de C++ que permite operar sobre rangos de cualquier contenedor.",
+    "historicalFootnote": "La STL (Standard Template Library) fue diseñada por Alexander Stepanov y Meng Lee en HP en los años 90, influenciada por la programación genérica. std::sort fue un avance sobre qsort de C porque es type-safe y más rápida gracias al inlining de comparaciones.",
+    "asymptoticComplexity": {
+      "time": "O(n log n)",
+      "space": "O(log n)",
+      "proofExplanation": "std::sort usa introsort: O(n log n) promedio y peor caso. std::min/max son O(1). El acceso [0] al vector es O(1)."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: sorted(lista) devuelve nueva lista ordenada. lista.sort() ordena in-place. min(lista) y max(lista) dan los extremos. No necesitas importar nada extra — son builtin.",
+    "cppExplanation": "C++: std::sort(v.begin(), v.end()) ordena in-place. std::min_element(v.begin(), v.end()) o simplemente *std::min_element para el mínimo. O más simple: std::min(a, b) para comparar dos valores."
+  },
+  "starterCodes": {
+    "python": "# Python equivalente:\nnums = [5, 2, 8, 1, 9, 3]\nnums.sort()\nprint(min(nums))   # 1\nprint(max(nums))   # 9\nprint(nums[0])     # 1 (primer elemento después de ordenar)\n",
+    "cpp": "// MÓDULO 9 C++: Librería <algorithm>\n// =====================================\n// Para usar algoritmos estándar: #include <algorithm>\n// También necesitas: #include <vector>\n//\n// Ordenar un vector:\n//   std::sort(v.begin(), v.end());  <- ordena de menor a mayor\n//\n// Mínimo y máximo de dos valores:\n//   std::min(a, b)   -> el menor de a y b\n//   std::max(a, b)   -> el mayor de a y b\n//\n// PASO 1: #include <iostream>, #include <vector>, #include <algorithm>\n// PASO 2: int main() {\n// PASO 3: std::vector<int> nums = {5, 2, 8, 1, 9, 3};\n// PASO 4: std::sort(nums.begin(), nums.end());\n// PASO 5: // Después de sort, nums = {1, 2, 3, 5, 8, 9}\n// PASO 6: std::cout << nums[0] << \"\\n\";               // mínimo: 1\n// PASO 7: std::cout << nums[nums.size()-1] << \"\\n\";   // máximo: 9\n// PASO 8: std::cout << nums[0] << \"\\n\";               // primer elemento: 1\n// PASO 9: return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "nums = [5, 2, 8, 1, 9, 3]\nnums.sort()\nprint(nums[0])\nprint(nums[-1])\nprint(nums[0])\n",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\n\nint main() {\n    std::vector<int> nums = {5, 2, 8, 1, 9, 3};\n    std::sort(nums.begin(), nums.end());\n    std::cout << nums[0] << \"\\n\";\n    std::cout << nums[nums.size()-1] << \"\\n\";\n    std::cout << nums[0] << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Después de sort: min(1), max(9), primer elemento(1)",
+      "input": "",
+      "expectedOutput": "1\n9\n1",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "1\n9\n1",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Los tres includes necesarios?",
+      "prompt": "Este ejercicio necesita tres headers: #include <iostream> (para cout), #include <vector> (para vector), #include <algorithm> (para sort). ¿Tienes los tres?"
+    },
+    {
+      "level": 2,
+      "title": "¿Cómo usar sort?",
+      "prompt": "std::sort necesita saber dónde empieza y termina el rango: std::sort(nums.begin(), nums.end()). begin() apunta al primer elemento, end() apunta uno después del último. ¿Pasas ambos iteradores?"
+    },
+    {
+      "level": 3,
+      "title": "¿Cómo obtener el máximo después de sort?",
+      "prompt": "Después de sort, el vector queda ordenado de menor a mayor. El máximo es el ÚLTIMO elemento: nums[nums.size()-1]. size()-1 porque los índices van de 0 a size()-1. ¿Usas nums[nums.size()-1] para el máximo?"
+    }
+  ]
+}

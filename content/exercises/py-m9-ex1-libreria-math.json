@@ -1,0 +1,81 @@
+{
+  "id": "py-m9-ex1-libreria-math",
+  "level": 18,
+  "title": "Usando la Librería math",
+  "subtitle": "Importa y usa funciones matemáticas ya hechas",
+  "difficulty": "Intermedio",
+  "xpReward": 100,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "Python tiene una 'librería estándar' con miles de herramientas listas. 'import math' da acceso a funciones matemáticas. Tu tarea: importar math y usar sqrt(), pi y floor() para calcular e imprimir tres resultados.",
+    "learningObjectives": [
+      "Entender qué es una librería y por qué existen",
+      "Usar 'import nombre_libreria' para acceder a sus herramientas",
+      "Llamar funciones de una librería con libreria.funcion()",
+      "Conocer math.sqrt(), math.pi, math.floor() y math.ceil()"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Librerías: No Reinventes la Rueda",
+    "mentalModel": "Una librería es como un libro de recetas escrito por expertos. En vez de inventar cómo calcular una raíz cuadrada desde cero, importas 'math' y usas math.sqrt() que ya está optimizada y probada. Los mejores programadores saben qué herramientas existen y cuándo usarlas.",
+    "mathematicalFoundation": "math.sqrt(x) = x^(1/2). math.floor(x) = ⌊x⌋ (redondeo hacia abajo). math.ceil(x) = ⌈x⌉ (redondeo hacia arriba). math.pi = π ≈ 3.14159265358979...",
+    "historicalFootnote": "La librería math de Python envuelve las funciones matemáticas del estándar C (libm), que a su vez implementan algoritmos numéricos desarrollados desde los años 60 con alta precisión para hardware de punto flotante.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Todas las operaciones matemáticas básicas son O(1) en hardware de punto flotante."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "import math carga el módulo completo. También puedes importar solo lo que necesitas: from math import sqrt, pi. Luego usas directamente sqrt(25) sin el prefijo math.",
+    "cppExplanation": "C++: #include <cmath> da acceso a sqrt(), floor(), ceil(), pow(), sin(), cos(). Se usan directamente (sin prefijo): sqrt(25.0). M_PI da el valor de pi pero puede requerir #define _USE_MATH_DEFINES en Windows."
+  },
+  "starterCodes": {
+    "python": "# MÓDULO 9: Librerías - Herramientas Listas para Usar\n# ====================================================\n# Una librería es código ya escrito que puedes reutilizar.\n# Para usar una librería: import nombre_libreria\n# Para usar sus funciones: nombre_libreria.funcion(argumento)\n#\n# Funciones de math que necesitas:\n#   math.sqrt(25)        -> 5.0  (raíz cuadrada)\n#   math.pi              -> 3.14159...  (el número π)\n#   round(math.pi, 2)    -> 3.14  (redondear a 2 decimales)\n#   math.floor(7.8)      -> 7  (redondear hacia abajo)\n#\n# PASO 1: Escribe: import math\n# PASO 2: raiz = math.sqrt(25)\n#         print(raiz)            <- debe imprimir: 5.0\n# PASO 3: pi_valor = math.pi\n#         print(round(pi_valor, 2))  <- debe imprimir: 3.14\n# PASO 4: piso = math.floor(7.8)\n#         print(piso)            <- debe imprimir: 7\n# Tu código va aquí:\n",
+    "cpp": "// #include <cmath>\n// std::cout << sqrt(25.0) << \"\\n\";   // 5\n// std::cout << floor(7.8) << \"\\n\";  // 7\n"
+  },
+  "solutionReferences": {
+    "python": "import math\n\nraiz = math.sqrt(25)\nprint(raiz)\n\npi_valor = math.pi\nprint(round(pi_valor, 2))\n\npiso = math.floor(7.8)\nprint(piso)\n",
+    "cpp": "#include <iostream>\n#include <cmath>\nint main() {\n    std::cout << sqrt(25.0) << \"\\n\";\n    std::cout << 3.14 << \"\\n\";\n    std::cout << (int)floor(7.8) << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir 5.0, 3.14 y 7 en líneas separadas",
+      "input": "",
+      "expectedOutput": "5.0\n3.14\n7",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta: misma salida",
+      "input": "",
+      "expectedOutput": "5.0\n3.14\n7",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Dónde va el import?",
+      "prompt": "La línea 'import math' debe ir al PRINCIPIO del archivo, antes de usar cualquier función de math. ¿La tienes en la primera línea de tu código?"
+    },
+    {
+      "level": 2,
+      "title": "¿Cómo llamar funciones de una librería?",
+      "prompt": "Después de 'import math', cada función se accede con el prefijo 'math.': math.sqrt(25), math.floor(7.8). Si escribes solo sqrt(25) sin el prefijo, Python no sabrá de dónde viene."
+    },
+    {
+      "level": 3,
+      "title": "¿Por qué round() para pi?",
+      "prompt": "math.pi vale 3.141592653589793... La prueba espera exactamente '3.14'. round(math.pi, 2) redondea a 2 decimales. ¿Usas round() al imprimir pi_valor?"
+    }
+  ]
+}

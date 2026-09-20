@@ -1,0 +1,97 @@
+{
+  "id": "py-m6-ex1-primera-funcion",
+  "level": 15,
+  "title": "Tu Primera Función",
+  "subtitle": "Crea código reutilizable con def y return",
+  "difficulty": "Fundamento",
+  "xpReward": 80,
+  "entryFunctionName": "doblar",
+  "spec": {
+    "summary": "Una función es un bloque de código con nombre que puedes reutilizar. Se define con 'def', recibe datos (parámetros) y devuelve un resultado (return). Tu tarea: definir la función 'doblar' que recibe un número y devuelve el doble.",
+    "learningObjectives": [
+      "Entender qué es una función y por qué son útiles",
+      "Usar def para declarar una función con parámetros",
+      "Usar return para devolver un valor desde una función",
+      "Llamar a una función con argumentos y usar su resultado"
+    ],
+    "constraints": {
+      "inputRange": "Número entero",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Funciones: Recetas Reutilizables",
+    "mentalModel": "Una función es como una máquina expendedora: le metes una moneda (parámetro), presionas el botón, y te devuelve un producto (return). Puedes usarla infinitas veces sin volver a construirla. def = diseñar la máquina. Llamar a la función = usar la máquina.",
+    "mathematicalFoundation": "Una función f(x) en matemáticas mapea una entrada x a una salida f(x). En Python: def f(x): return x*2 es exactamente la función matemática f(x)=2x.",
+    "historicalFootnote": "Las funciones (llamadas subrutinas en los años 50) fueron inventadas para evitar repetir el mismo código en memoria — un recurso extremadamente escaso en las primeras computadoras.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "La función doblar realiza exactamente 1 multiplicación independientemente del valor del parámetro."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python usa 'def nombre(parametros):' con cuerpo indentado. No necesitas declarar el tipo de retorno. Python infiere los tipos automáticamente en tiempo de ejecución.",
+    "cppExplanation": "En C++ debes declarar el tipo: 'int doblar(int numero) { return numero * 2; }'. El tipo de retorno (int) y el tipo del parámetro (int) son obligatorios."
+  },
+  "starterCodes": {
+    "python": "# MÓDULO 6: Funciones - Código Reutilizable\n# ==========================================\n# Una función se define con 'def' y devuelve un valor con 'return'.\n# Sintaxis:\n#   def nombre_funcion(parametro1, parametro2):\n#       resultado = ...        <- calcula algo\n#       return resultado       <- devuelve el resultado\n#\n# Luego la LLAMAS así:\n#   mi_resultado = nombre_funcion(5)\n#   print(mi_resultado)  # imprime el valor devuelto\n#\n# PASO 1: Define la función: def doblar(numero):\n# PASO 2:   (4 espacios) return numero * 2\n# Tu código va aquí:\n",
+    "cpp": "// En C++ la misma función:\n// int doblar(int numero) {\n//     return numero * 2;\n// }\n"
+  },
+  "solutionReferences": {
+    "python": "def doblar(numero):\n    return numero * 2\n",
+    "cpp": "#include <iostream>\nint doblar(int numero) {\n    return numero * 2;\n}\nint main() {\n    std::cout << doblar(5) << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "doblar(5) debe retornar 10",
+      "input": "5",
+      "expectedOutput": "10",
+      "evaluationType": "function_return",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "doblar(0) debe retornar 0",
+      "input": "0",
+      "expectedOutput": "0",
+      "evaluationType": "function_return",
+      "isHidden": false
+    },
+    {
+      "id": "tc-3",
+      "description": "doblar(7) debe retornar 14",
+      "input": "7",
+      "expectedOutput": "14",
+      "evaluationType": "function_return",
+      "isHidden": true
+    },
+    {
+      "id": "tc-4",
+      "description": "doblar(-3) debe retornar -6",
+      "input": "-3",
+      "expectedOutput": "-6",
+      "evaluationType": "function_return",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Dónde empieza la función?",
+      "prompt": "La palabra 'def' le dice a Python que vas a definir una función. Después del nombre debes poner paréntesis con el parámetro: def doblar(numero): — ¿qué representa 'numero' aquí?"
+    },
+    {
+      "level": 2,
+      "title": "¿Qué hace return?",
+      "prompt": "return le da a quien llamó la función el resultado del cálculo. Sin return, la función devuelve None. ¿Qué necesitas calcular dentro de doblar para devolver el doble de numero?"
+    },
+    {
+      "level": 3,
+      "title": "Definir ≠ Ejecutar",
+      "prompt": "Escribir 'def doblar(numero):' solo define la función pero NO la ejecuta. Para ejecutarla debes llamarla: doblar(5). Las pruebas llaman tu función automáticamente, pero debes asegurarte de que esté definida correctamente."
+    }
+  ]
+}

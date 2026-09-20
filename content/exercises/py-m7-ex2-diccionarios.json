@@ -1,0 +1,81 @@
+{
+  "id": "py-m7-ex2-diccionarios",
+  "level": 16,
+  "title": "Diccionarios: Datos con Nombre",
+  "subtitle": "Guarda pares clave-valor para acceso rápido por nombre",
+  "difficulty": "Intermedio",
+  "xpReward": 100,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "Un diccionario guarda pares clave-valor. Accedes a los datos por nombre (clave) en vez de por número (índice). Tu tarea: crear un diccionario de estudiante, agregar un campo nuevo, e imprimir dos valores.",
+    "learningObjectives": [
+      "Crear un diccionario con {} y pares clave: valor",
+      "Acceder a valores por clave: diccionario['clave']",
+      "Agregar nuevas claves dinámicamente",
+      "Entender cuándo usar diccionario vs lista"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(n)"
+    }
+  },
+  "theory": {
+    "title": "Diccionarios: Búsqueda por Nombre, no por Número",
+    "mentalModel": "Un diccionario es como una agenda telefónica real: buscas el nombre (clave) y encuentras el número (valor). Es mucho más claro que recordar 'el número de Ana está en la posición 3'. persona['nombre'] es más legible que persona[0].",
+    "mathematicalFoundation": "Los diccionarios son tablas hash internamente: el acceso por clave es O(1) promedio. No importa si el diccionario tiene 5 o 5 millones de claves — encontrar un valor es igual de rápido.",
+    "historicalFootnote": "Las tablas hash fueron inventadas por Hans Peter Luhn (IBM) en 1953. Son la estructura de datos que hace posible bases de datos, cachés web y sistemas de autenticación modernos.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(n)",
+      "proofExplanation": "Acceder, insertar o eliminar por clave es O(1) promedio gracias a la función hash interna."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: estudiante = {'nombre': 'Luis', 'edad': 22}. Acceso: estudiante['nombre']. Agregar: estudiante['nueva_clave'] = valor. Las claves pueden ser strings, números o tuplas.",
+    "cppExplanation": "C++: #include <map> — std::map<std::string, int> datos; datos[\"edad\"] = 22; std::cout << datos[\"edad\"]; También existe std::unordered_map para acceso O(1) en vez de O(log n)."
+  },
+  "starterCodes": {
+    "python": "# MÓDULO 7: Diccionarios - Datos con Nombre\n# ==========================================\n# Un diccionario guarda pares clave: valor entre llaves {}.\n# Sintaxis: mi_dict = {'clave1': valor1, 'clave2': valor2}\n# Acceso: mi_dict['clave1']    <- devuelve valor1\n# Agregar: mi_dict['nueva'] = nuevo_valor\n#\n# PASO 1: Crea el diccionario estudiante con 3 claves:\n#   estudiante = {'nombre': 'Luis', 'edad': 22, 'carrera': 'Ingeniería'}\n# PASO 2: Agrega la clave 'promedio' con valor 8.5:\n#   estudiante['promedio'] = 8.5\n# PASO 3: Imprime estudiante['nombre']   <- debe mostrar: Luis\n# PASO 4: Imprime estudiante['promedio'] <- debe mostrar: 8.5\n# Tu código va aquí:\n",
+    "cpp": "// std::map equivalente en C++:\n// #include <map>\n// #include <string>\n// std::map<std::string, std::string> est;\n// est[\"nombre\"] = \"Luis\";\n// std::cout << est[\"nombre\"];\n"
+  },
+  "solutionReferences": {
+    "python": "estudiante = {'nombre': 'Luis', 'edad': 22, 'carrera': 'Ingeniería'}\nestudiante['promedio'] = 8.5\nprint(estudiante['nombre'])\nprint(estudiante['promedio'])\n",
+    "cpp": "#include <iostream>\n#include <map>\n#include <string>\nint main() {\n    std::map<std::string, double> est;\n    est[\"promedio\"] = 8.5;\n    std::cout << \"Luis\" << \"\\n\" << est[\"promedio\"] << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir 'Luis' y luego '8.5'",
+      "input": "",
+      "expectedOutput": "Luis\n8.5",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta: misma salida",
+      "input": "",
+      "expectedOutput": "Luis\n8.5",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Cómo crear el diccionario?",
+      "prompt": "Un diccionario usa llaves {} con pares clave: valor separados por comas. ¿Cómo escribirías un diccionario con 'nombre': 'Luis' y 'edad': 22?"
+    },
+    {
+      "level": 2,
+      "title": "¿Cómo agregar una nueva clave?",
+      "prompt": "Para agregar 'promedio' = 8.5 a un diccionario llamado 'estudiante', escribes: estudiante['promedio'] = 8.5. Esto funciona aunque 'promedio' no existiera antes. ¿Ya lo tienes en tu código?"
+    },
+    {
+      "level": 3,
+      "title": "¿El orden de los print importa?",
+      "prompt": "Las pruebas esperan primero 'Luis' y luego '8.5'. ¿En qué orden tienes tus dos líneas de print? ¿Accedes con estudiante['nombre'] y estudiante['promedio'] en ese orden?"
+    }
+  ]
+}

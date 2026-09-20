@@ -1,0 +1,65 @@
+{
+  "id": "py-m1-ex1-hola-mundo",
+  "level": 10,
+  "title": "Tu Primer Programa: ¡Hola Mundo!",
+  "subtitle": "Aprende a mostrar texto en la pantalla con print()",
+  "difficulty": "Fundamento",
+  "xpReward": 30,
+  "entryFunctionName": null,
+  "evaluationType": "stdout",
+  "spec": {
+    "summary": "Tu primera tarea es escribir un programa que imprima exactamente: Hola, Mundo!",
+    "learningObjectives": [
+      "Entender qué es un script en Python",
+      "Usar la función print() para mostrar texto en pantalla"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "El intérprete de Python y la función print()",
+    "mentalModel": "Python lee tu código de arriba hacia abajo, como si estuvieras leyendo una receta de cocina paso a paso. La función print() es como decirle a la computadora 'di esto en voz alta'.",
+    "mathematicalFoundation": "N/A",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "El programa imprime una cadena de longitud fija, lo cual toma tiempo y espacio constante."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "En Python, `print()` muestra texto y añade una nueva línea automáticamente.",
+    "cppExplanation": "En C++, usamos `std::cout << \"texto\" << std::endl;` para imprimir texto."
+  },
+  "starterCodes": {
+    "python": "# PASO 1: Usa la función print() para mostrar texto en pantalla\n# La sintaxis es: print(\"el texto que quieres mostrar\")\n# Tu código va aquí:\n",
+    "cpp": "#include <iostream>\n\nint main() {\n    // Usa std::cout para mostrar texto en pantalla\n    // Tu código va aquí:\n    \n    return 0;\n}"
+  },
+  "solutionReferences": {
+    "python": "print(\"Hola, Mundo!\")",
+    "cpp": "#include <iostream>\n\nint main() {\n    std::cout << \"Hola, Mundo!\" << std::endl;\n    return 0;\n}"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "input": "",
+      "expectedOutput": "Hola, Mundo!\n",
+      "isHidden": false,
+      "evaluationType": "stdout"
+    },
+    {
+      "id": "tc-2",
+      "input": "",
+      "expectedOutput": "Hola, Mundo!\n",
+      "isHidden": true,
+      "evaluationType": "stdout"
+    }
+  ],
+  "socraticHints": [
+    {"level": 1, "title": "Sintaxis de print", "prompt": "¿Recuerdas cómo escribir la función print? Empieza con print()."},
+    {"level": 2, "title": "Uso de comillas", "prompt": "El texto dentro de print() debe ir entre comillas, como \"Hola, Mundo!\"."},
+    {"level": 3, "title": "Texto exacto", "prompt": "Asegúrate de incluir la coma y escribir exactamente 'Hola, Mundo!' respetando las mayúsculas."}
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m6-ex1-primera-funcion",
+  "level": 25,
+  "title": "Tu Primera Función en C++",
+  "subtitle": "Tipo de retorno obligatorio, parámetros tipados",
+  "difficulty": "Fundamento",
+  "xpReward": 80,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "En C++ una función debe declarar el tipo del valor que retorna y el tipo de cada parámetro. void significa que no retorna nada. Tu tarea: definir la función doblar() que multiplica por 2 e imprime el resultado.",
+    "learningObjectives": [
+      "Declarar una función con tipo de retorno y tipos de parámetros",
+      "Entender que void significa 'no retorna nada'",
+      "Definir la función ANTES de main() o usar un prototipo",
+      "Llamar a una función desde main()"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Funciones en C++: Tipos Explícitos en Todo",
+    "mentalModel": "Una función C++ es como un contrato: prometes que devolverás un int, y el compilador te obligará a cumplirlo. Si declaras 'int doblar(int n)' y dentro no tienes 'return', el compilador te advierte. Este contrato explícito previene errores de tipo en sistemas grandes.",
+    "mathematicalFoundation": "La firma de una función especifica su dominio (tipos de parámetros) y codominio (tipo de retorno): doblar: int → int. El compilador verifica que las llamadas respeten esta firma.",
+    "historicalFootnote": "En C original, si no declarabas el tipo de retorno, se asumía int. C++ eliminó esta ambigüedad y requiere tipos explícitos. Esto influyó en Java, C#, Swift y Rust, que también usan tipado estático estricto.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Una multiplicación es O(1). El call stack crece una frame pero eso es O(1) también."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: def doblar(numero): return numero * 2 — sin declarar tipos. Python infiere automáticamente. Puedes agregar type hints opcionales: def doblar(numero: int) -> int: pero no son obligatorios.",
+    "cppExplanation": "C++: int doblar(int numero) { return numero * 2; } — el tipo de retorno (int) antes del nombre, el tipo del parámetro (int) antes de su nombre. Obligatorio. El compilador rechaza tipos incorrectos."
+  },
+  "starterCodes": {
+    "python": "# Python equivalente:\ndef doblar(numero):\n    return numero * 2\n\nresultado = doblar(5)\nprint(resultado)\n",
+    "cpp": "// MÓDULO 6 C++: Funciones con Tipos\n// ====================================\n// Sintaxis de una función en C++:\n//   tipo_retorno nombre(tipo_param1 param1, tipo_param2 param2) {\n//       return valor_del_tipo_correcto;\n//   }\n//\n// Tipos comunes de retorno:\n//   int, double, bool, std::string, void (no retorna nada)\n//\n// La función debe definirse ANTES de main() para poder usarla.\n//\n// PASO 1: #include <iostream>\n// PASO 2: Define la función ANTES de main:\n//   int doblar(int numero) {\n//       return numero * 2;\n//   }\n// PASO 3: int main() {\n// PASO 4:   int resultado = doblar(5);\n// PASO 5:   std::cout << resultado << \"\\n\";\n// PASO 6:   return 0;\n//           }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "def doblar(numero):\n    return numero * 2\n\nresultado = doblar(5)\nprint(resultado)\n",
+    "cpp": "#include <iostream>\n\nint doblar(int numero) {\n    return numero * 2;\n}\n\nint main() {\n    int resultado = doblar(5);\n    std::cout << resultado << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "doblar(5) debe producir salida 10",
+      "input": "",
+      "expectedOutput": "10",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "10",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿El tipo de retorno antes del nombre?",
+      "prompt": "En C++ la función empieza con el tipo que va a retornar: 'int doblar(...)' porque retorna un int. Si retornara nada, sería 'void doblar(...)'. ¿Tu función tiene 'int' antes de su nombre?"
+    },
+    {
+      "level": 2,
+      "title": "¿La función está antes de main()?",
+      "prompt": "El compilador lee C++ de arriba a abajo. Si defines doblar() DESPUÉS de main(), main() no la conoce al momento de llamarla. Solución: pon doblar() antes de main(). ¿Tu función está arriba de int main()?"
+    },
+    {
+      "level": 3,
+      "title": "¿El tipo del parámetro también?",
+      "prompt": "En C++ cada parámetro necesita su tipo: int doblar(int numero). No puedes escribir solo doblar(numero) como en Python. El compilador necesita saber qué tipo de datos acepta la función."
+    }
+  ]
+}

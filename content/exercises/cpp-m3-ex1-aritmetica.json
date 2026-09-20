@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m3-ex1-aritmetica",
+  "level": 22,
+  "title": "Operaciones Aritméticas en C++",
+  "subtitle": "La trampa de la división entera: int/int = int",
+  "difficulty": "Fundamento",
+  "xpReward": 50,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "C++ tiene los mismos operadores que Python (+,-,*,/,%) pero con una diferencia CRÍTICA: dividir dos int da un int (la parte decimal se pierde). Para decimales debes hacer cast: (double)10/3. Tu tarea: calcular suma, cociente entero, resto y división real.",
+    "learningObjectives": [
+      "Usar operadores aritméticos: +, -, *, /, %",
+      "Entender la división entera: 10/3 = 3 (no 3.333)",
+      "Usar cast (double) para forzar división decimal",
+      "Formatear salida decimal con fixed y setprecision"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "La Trampa de la División Entera en C++",
+    "mentalModel": "En C++, si divides dos int el resultado es siempre un int — la parte decimal se descarta silenciosamente. Es como si tu calculadora solo mostrara la parte entera. Para obtener decimales, al menos uno de los dos números debe ser double: (double)10/3 = 3.333... o 10.0/3 = 3.333...",
+    "mathematicalFoundation": "Operadores: + suma, - resta, * multiplicación, / división (entera si ambos son int), % módulo (resto de la división entera). 10 % 3 = 1 porque 10 = 3×3 + 1. El cast (double) convierte temporalmente un int a double para la operación.",
+    "historicalFootnote": "La división entera en C (y por herencia en C++) fue una decisión de diseño de Dennis Ritchie en 1972 para eficiencia en hardware. En assembly, la instrucción IDIV siempre da resultado entero. Python 3 cambió / para siempre dar float, separando // para división entera.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Las operaciones aritméticas básicas son instrucciones de hardware de tiempo constante."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python 3: 10/3 = 3.3333 (siempre decimal), 10//3 = 3 (división entera explícita), 10%3 = 1 (módulo). Python separa claramente / y //.",
+    "cppExplanation": "C++: 10/3 = 3 (división entera, se pierde .333). Para decimal: (double)10/3 = 3.333. O declara como double: double a=10.0; a/3 = 3.333. El módulo % solo funciona con enteros."
+  },
+  "starterCodes": {
+    "python": "# Python equivalente:\nprint(15 + 7)       # 22\nprint(10 // 3)      # 3 (división entera en Python usa //)\nprint(10 % 3)       # 1\nprint(round(10/3, 2))  # 3.33\n",
+    "cpp": "// MÓDULO 3 C++: Operaciones Aritméticas\n// ========================================\n// IMPORTANTE: En C++, int/int = int (se pierde la parte decimal)\n//   10/3 = 3   (NO 3.333)\n//   (double)10/3 = 3.333  <- el cast fuerza división decimal\n//\n// Operadores: + - * / % (igual que Python excepto la división)\n// Para formatear decimales: #include <iomanip>\n//   std::cout << std::fixed << std::setprecision(2) << valor;\n//\n// PASO 1: #include <iostream> y #include <iomanip>\n// PASO 2: int main() {\n// PASO 3: int suma = 15 + 7;  std::cout << suma << \"\\n\";\n// PASO 4: int cociente = 10 / 3;  std::cout << cociente << \"\\n\";\n// PASO 5: int resto = 10 % 3;  std::cout << resto << \"\\n\";\n// PASO 6: double real = (double)10 / 3;\n//         std::cout << std::fixed << std::setprecision(2) << real << \"\\n\";\n// PASO 7: return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "print(15 + 7)\nprint(10 // 3)\nprint(10 % 3)\nprint(round(10/3, 2))\n",
+    "cpp": "#include <iostream>\n#include <iomanip>\n\nint main() {\n    int suma = 15 + 7;\n    std::cout << suma << \"\\n\";\n\n    int cociente = 10 / 3;\n    std::cout << cociente << \"\\n\";\n\n    int resto = 10 % 3;\n    std::cout << resto << \"\\n\";\n\n    double real = (double)10 / 3;\n    std::cout << std::fixed << std::setprecision(2) << real << \"\\n\";\n\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir 22, 3, 1 y 3.33 en líneas separadas",
+      "input": "",
+      "expectedOutput": "22\n3\n1\n3.33",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "22\n3\n1\n3.33",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Por qué 10/3 da 3 y no 3.33?",
+      "prompt": "Cuando ambos operandos son int en C++, el resultado es int y la parte decimal se descarta. 10/3 = 3.333... → pero como int → 3. ¿Declaraste 'cociente' como int?"
+    },
+    {
+      "level": 2,
+      "title": "¿Cómo obtener 3.33?",
+      "prompt": "Para forzar división decimal, convierte uno de los números a double con cast: (double)10/3. O usa un literal decimal: 10.0/3. ¿Tienes el cast en tu cálculo de 'real'?"
+    },
+    {
+      "level": 3,
+      "title": "¿Cómo formatear a 2 decimales?",
+      "prompt": "std::fixed junto con std::setprecision(2) fuerza 2 decimales en la salida. Necesitas #include <iomanip>. Se aplica así: cout << fixed << setprecision(2) << real; ¿Tienes el include de iomanip?"
+    }
+  ]
+}

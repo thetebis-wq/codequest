@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m5-ex1-for-loop",
+  "level": 24,
+  "title": "El Bucle for Clásico de C++",
+  "subtitle": "Tres partes: inicialización, condición e incremento",
+  "difficulty": "Fundamento",
+  "xpReward": 70,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "El bucle for de C++ tiene tres partes en una sola línea: inicialización, condición e incremento. Es más explícito que Python pero más flexible. Tu tarea: imprimir números del 1 al 5 con un for.",
+    "learningObjectives": [
+      "Entender las 3 partes del for de C++: init; condicion; incremento",
+      "Saber que i++ es la forma corta de i = i + 1",
+      "Comparar con el for de Python (range vs counter manual)",
+      "Usar el cuerpo del for entre llaves { }"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "El for de C++: Control Total del Contador",
+    "mentalModel": "El for de C++ es como una máquina con tres controles: el primero enciende el contador (int i=1), el segundo dice cuándo parar (i<=5), el tercero avanza el contador después de cada vuelta (i++). Cada vuelta: verifica condición → ejecuta cuerpo → incrementa → vuelve a verificar.",
+    "mathematicalFoundation": "i++ es el operador post-incremento: primero usa el valor actual de i, luego lo incrementa. ++i es pre-incremento: primero incrementa, luego usa el valor. Para un bucle simple, ambos dan el mismo resultado.",
+    "historicalFootnote": "El operador ++ que da nombre a C++ fue introducido por Dennis Ritchie en el lenguaje B (predecesor de C). Bjarne Stroustrup nombró 'C++' precisamente usando este operador: 'C mejorado'.",
+    "asymptoticComplexity": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "proofExplanation": "El bucle ejecuta exactamente n iteraciones con O(1) memoria (solo la variable i)."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: for i in range(1, 6): — Python genera la secuencia automáticamente. La variable i toma cada valor sin que tú gestiones el incremento.",
+    "cppExplanation": "C++: for (int i = 1; i <= 5; i++) { } — tú controlas explícitamente todo: dónde empieza (i=1), cuándo para (i<=5), cómo avanza (i++). Más verbose pero más flexible."
+  },
+  "starterCodes": {
+    "python": "# Python equivalente:\nfor i in range(1, 6):\n    print(i)\n",
+    "cpp": "// MÓDULO 5 C++: El Bucle for\n// ============================\n// Sintaxis del for en C++:\n//   for (inicializacion; condicion; incremento) {\n//       cuerpo;\n//   }\n//\n// Ejemplo:\n//   for (int i = 0; i < 5; i++) { ... }  <- i va de 0 a 4\n//\n// Para imprimir del 1 al 5:\n//   for (int i = 1; i <= 5; i++) { ... }  <- i va de 1 a 5\n//\n// i++ es equivalente a i = i + 1\n//\n// PASO 1: #include <iostream>\n// PASO 2: int main() {\n// PASO 3: for (int i = 1; i <= 5; i++) {\n// PASO 4:     std::cout << i << \"\\n\";\n// PASO 5: }\n// PASO 6: return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "for i in range(1, 6):\n    print(i)\n",
+    "cpp": "#include <iostream>\n\nint main() {\n    for (int i = 1; i <= 5; i++) {\n        std::cout << i << \"\\n\";\n    }\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir 1 al 5 en líneas separadas",
+      "input": "",
+      "expectedOutput": "1\n2\n3\n4\n5",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "1\n2\n3\n4\n5",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Las 3 partes del for separadas por ;?",
+      "prompt": "El for de C++ tiene formato: for (parte1; parte2; parte3). Las tres partes van separadas por punto y coma ;. Parte 1: int i=1 (iniciar), Parte 2: i<=5 (condición de continuar), Parte 3: i++ (incrementar). ¿Las tienes las tres?"
+    },
+    {
+      "level": 2,
+      "title": "¿Por qué i <= 5 y no i < 5?",
+      "prompt": "Si usas i < 5 con i empezando en 1, el bucle termina cuando i llega a 5 sin ejecutarse (imprimiría 1,2,3,4). Para incluir el 5, necesitas i <= 5. ¿Cuál condición usas?"
+    },
+    {
+      "level": 3,
+      "title": "¿El cuerpo del for entre llaves?",
+      "prompt": "El código que se repite va entre { } después del for. Si solo hay una instrucción las llaves son técnicamente opcionales, pero es muy recomendable incluirlas siempre. ¿Tu cout está dentro de las llaves del for?"
+    }
+  ]
+}

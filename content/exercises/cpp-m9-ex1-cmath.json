@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m9-ex1-cmath",
+  "level": 28,
+  "title": "Matemáticas con <cmath>",
+  "subtitle": "sqrt, pow, floor y las funciones matemáticas de C++",
+  "difficulty": "Intermedio",
+  "xpReward": 100,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "#include <cmath> da acceso a funciones matemáticas de la librería estándar de C++. Son las mismas que math de Python pero con sintaxis C++. Tu tarea: calcular raíz cuadrada, potencia y piso.",
+    "learningObjectives": [
+      "Incluir <cmath> para acceder a funciones matemáticas",
+      "Usar sqrt(), pow(), floor() sin prefijo de namespace",
+      "Hacer cast (int) para imprimir doubles como enteros",
+      "Ver la correspondencia entre math de Python y cmath de C++"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "<cmath>: El math de Python en C++",
+    "mentalModel": "cmath es la librería matemática de C++ — el equivalente de 'import math' en Python. Las funciones son prácticamente las mismas: sqrt() para raíz cuadrada, pow() para potencias, floor() para redondeo hacia abajo. La diferencia: en Python usas math.sqrt(); en C++ solo sqrt() (sin prefijo) porque ya están en el namespace global.",
+    "mathematicalFoundation": "sqrt(x) = x^(1/2). pow(base, exp) = base^exp. floor(x) = ⌊x⌋ (el entero más grande ≤ x). Todas estas funciones trabajan con doubles internamente para máxima precisión.",
+    "historicalFootnote": "cmath es el header de C++ que envuelve <math.h> de C. Las implementaciones de estas funciones (como sqrt) usan algoritmos numéricos optimizados del estándar IEEE 754 y a menudo se mapean directamente a instrucciones de hardware como FSQRT en x86.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Las operaciones matemáticas de cmath son instrucciones de hardware de tiempo constante en la FPU (unidad de punto flotante)."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: import math; math.sqrt(25) → 5.0; math.pow(2, 8) → 256.0; math.floor(7.8) → 7. Se necesita el prefijo 'math.' siempre.",
+    "cppExplanation": "C++: #include <cmath>; sqrt(25.0) → 5.0; pow(2, 8) → 256.0; floor(7.8) → 7.0. Sin prefijo. Para imprimir como entero: (int)sqrt(25.0) → 5."
+  },
+  "starterCodes": {
+    "python": "# Python equivalente:\nimport math\nprint(math.sqrt(25))      # 5.0\nprint(int(math.pow(2,8))) # 256\nprint(int(math.floor(7.8))) # 7\n",
+    "cpp": "// MÓDULO 9 C++: Librería <cmath>\n// ================================\n// Para usar funciones matemáticas: #include <cmath>\n// Las funciones se usan SIN prefijo (no es math.sqrt, solo sqrt)\n//\n// Funciones disponibles:\n//   sqrt(25.0)     -> 5.0   (raíz cuadrada)\n//   pow(2.0, 8.0)  -> 256.0 (potencia: 2^8)\n//   floor(7.8)     -> 7.0   (redondeo hacia abajo)\n//   ceil(7.2)      -> 8.0   (redondeo hacia arriba)\n//   abs(-5)        -> 5     (valor absoluto)\n//\n// Para imprimir como entero sin decimales:\n//   std::cout << (int)sqrt(25.0) << \"\\n\";  -> imprime: 5\n//\n// PASO 1: #include <iostream> y #include <cmath>\n// PASO 2: int main() {\n// PASO 3: std::cout << (int)sqrt(25.0) << \"\\n\";    -> 5\n// PASO 4: std::cout << (int)pow(2.0, 8.0) << \"\\n\"; -> 256\n// PASO 5: std::cout << (int)floor(7.8) << \"\\n\";   -> 7\n// PASO 6: return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "import math\nprint(int(math.sqrt(25)))\nprint(int(math.pow(2, 8)))\nprint(int(math.floor(7.8)))\n",
+    "cpp": "#include <iostream>\n#include <cmath>\n\nint main() {\n    std::cout << (int)sqrt(25.0) << \"\\n\";\n    std::cout << (int)pow(2.0, 8.0) << \"\\n\";\n    std::cout << (int)floor(7.8) << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir 5, 256 y 7 en líneas separadas",
+      "input": "",
+      "expectedOutput": "5\n256\n7",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "5\n256\n7",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Incluiste <cmath>?",
+      "prompt": "Las funciones sqrt(), pow(), floor() requieren #include <cmath>. Sin ese include, el compilador dice 'sqrt' no está declarado. ¿Tienes #include <cmath> junto con #include <iostream>?"
+    },
+    {
+      "level": 2,
+      "title": "¿Sin prefijo en C++?",
+      "prompt": "A diferencia de Python donde escribes math.sqrt(), en C++ con #include <cmath> las funciones se usan directamente: sqrt(25.0) — sin prefijo 'cmath.' ni 'math.'. ¿Tu código usa sqrt() sin prefijo?"
+    },
+    {
+      "level": 3,
+      "title": "¿El cast (int) para quitar decimales?",
+      "prompt": "sqrt(25.0) devuelve 5.0 (double). Si imprimes directamente, podrías ver '5' o '5.0' dependiendo del compilador. Para garantizar el entero: (int)sqrt(25.0) convierte 5.0 → 5. ¿Usas (int) antes de cada función?"
+    }
+  ]
+}

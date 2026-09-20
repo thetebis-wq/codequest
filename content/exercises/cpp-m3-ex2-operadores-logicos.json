@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m3-ex2-operadores-logicos",
+  "level": 22,
+  "title": "Operadores de Comparación y Lógicos",
+  "subtitle": "&&, ||, ! en vez de and, or, not de Python",
+  "difficulty": "Fundamento",
+  "xpReward": 60,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "Los operadores lógicos en C++ son diferentes a Python: && (and), || (or), ! (not). Los de comparación son iguales: ==, !=, <, >, <=, >=. Tu tarea: crear tres variables bool y mostrarlas con boolalpha.",
+    "learningObjectives": [
+      "Usar operadores lógicos de C++: && || !",
+      "Usar operadores de comparación: == != < > <= >=",
+      "Combinar condiciones con && y ||",
+      "Recordar que en C++ bool usa minúsculas (true/false)"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Lógica Booleana: Las Compuertas de Decisión",
+    "mentalModel": "Los operadores lógicos son como condiciones de la vida real: && (y): 'si tengo dinero Y tengo tiempo, voy al cine'. || (o): 'si llueve O hace frío, me quedo en casa'. ! (no): 'si NO tengo hambre, no como'. En hardware, estas operaciones son compuertas lógicas AND, OR, NOT implementadas con transistores.",
+    "mathematicalFoundation": "Álgebra de Boole: A && B = verdadero solo si A=true y B=true. A || B = verdadero si al menos uno es true. !A invierte el valor. Evaluación de cortocircuito: en A && B, si A es false, B no se evalúa.",
+    "historicalFootnote": "George Boole publicó 'El Análisis Matemático de la Lógica' en 1847 — décadas antes de las computadoras. Claude Shannon conectó la lógica booleana con los circuitos electrónicos en su tesis de 1937, sentando las bases del diseño digital moderno.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Las operaciones lógicas booleanas son instrucciones de hardware de un solo ciclo de reloj."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python usa palabras: 'and', 'or', 'not'. (x > 5) and (x < 20) → True/False. Python también permite chaining: 5 < x < 20.",
+    "cppExplanation": "C++ usa símbolos: &&, ||, !. (x > 5) && (x < 20). C++ también acepta las palabras 'and', 'or', 'not' como sinónimos (C++98), pero los símbolos son más comunes en código real."
+  },
+  "starterCodes": {
+    "python": "# Python equivalente:\nx = 10\nmayor = x > 5          # True\nigual = x == 10        # True\nambos = x > 5 and x < 20  # True\nprint(mayor)\nprint(igual)\nprint(ambos)\n",
+    "cpp": "// MÓDULO 3 C++: Operadores Lógicos\n// ===================================\n// DIFERENCIAS clave con Python:\n//   Python: and   or   not\n//   C++:    &&    ||   !\n//\n// Comparación (igual en ambos): ==  !=  <  >  <=  >=\n//\n// PASO 1: #include <iostream>\n// PASO 2: int main() {\n// PASO 3: int x = 10;\n// PASO 4: bool mayor = (x > 5);           // ¿x es mayor que 5?\n// PASO 5: bool igual = (x == 10);         // ¿x es igual a 10?\n// PASO 6: bool ambos = (x > 5) && (x < 20); // ¿x está entre 5 y 20?\n// PASO 7: std::cout << std::boolalpha;\n//         std::cout << mayor << \"\\n\";\n//         std::cout << igual << \"\\n\";\n//         std::cout << ambos << \"\\n\";\n// PASO 8: return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "x = 10\nmayor = x > 5\nigual = x == 10\nambos = x > 5 and x < 20\nprint(mayor)\nprint(igual)\nprint(ambos)\n",
+    "cpp": "#include <iostream>\n\nint main() {\n    int x = 10;\n    bool mayor = (x > 5);\n    bool igual = (x == 10);\n    bool ambos = (x > 5) && (x < 20);\n    std::cout << std::boolalpha;\n    std::cout << mayor << \"\\n\";\n    std::cout << igual << \"\\n\";\n    std::cout << ambos << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir 'true', 'true', 'true' en líneas separadas",
+      "input": "",
+      "expectedOutput": "true\ntrue\ntrue",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "true\ntrue\ntrue",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Cuál es el operador 'and' de C++?",
+      "prompt": "En Python escribes 'and'. En C++ el equivalente es '&&' (dos ampersands). Para 'or' usas '||' (dos barras verticales). Para 'not' usas '!' (signo de exclamación). ¿Usas && en tu código?"
+    },
+    {
+      "level": 2,
+      "title": "¿Dónde va std::boolalpha?",
+      "prompt": "std::boolalpha es un 'modificador de formato' que activas una vez y afecta todos los bool que se impriman después. Escríbelo ANTES del primer cout de un bool: cout << std::boolalpha; ¿Lo tienes?"
+    },
+    {
+      "level": 3,
+      "title": "¿Qué valores tienen las tres variables?",
+      "prompt": "Con x=10: (x>5) es true (10>5 ✓), (x==10) es true (10==10 ✓), (x>5)&&(x<20) es true (ambas condiciones verdaderas ✓). Las tres deben imprimir 'true'. ¿Coincide con tu salida?"
+    }
+  ]
+}

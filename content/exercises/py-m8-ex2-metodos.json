@@ -1,0 +1,81 @@
+{
+  "id": "py-m8-ex2-metodos",
+  "level": 17,
+  "title": "Métodos: Las Acciones de un Objeto",
+  "subtitle": "Agrega comportamiento a tus clases con métodos",
+  "difficulty": "Intermedio",
+  "xpReward": 120,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "Un método es una función que pertenece a una clase. Usa 'self' para acceder a los datos del objeto. Tu tarea: crear la clase Rectangulo con métodos describir() y calcular_area().",
+    "learningObjectives": [
+      "Definir métodos dentro de una clase",
+      "Usar self.atributo dentro de los métodos para acceder a los datos del objeto",
+      "Llamar a métodos con objeto.metodo()",
+      "Entender la diferencia entre un método que imprime y uno que retorna"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Métodos: Funciones que Conocen al Objeto",
+    "mentalModel": "Un método es como una habilidad que tiene un objeto. Un rectángulo SABE calcular su área porque tiene los datos (base y altura) dentro de sí mismo. A diferencia de una función normal, un método siempre tiene acceso a los datos del objeto mediante 'self'.",
+    "mathematicalFoundation": "Encapsulación: los datos (atributos) y las operaciones (métodos) que los usan viven juntos en el mismo objeto. Esto reduce errores porque los métodos solo operan sobre datos consistentes.",
+    "historicalFootnote": "Alan Kay, creador de Smalltalk en los años 70, acuñó el término 'Programación Orientada a Objetos'. Su idea central: los objetos se comunican enviándose mensajes (llamadas a métodos), como personas que se pasan notas.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Calcular área es una multiplicación O(1). El método describir hace una operación de formato O(1)."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: todos los métodos reciben 'self' como primer parámetro. r.calcular_area() es equivalente a Rectangulo.calcular_area(r) — Python pasa el objeto automáticamente.",
+    "cppExplanation": "C++: los métodos se declaran dentro del bloque class. No hay 'self' — accedes a los atributos directamente por nombre. 'const' al final indica que el método no modifica el objeto: double calcularArea() const { return base * altura; }"
+  },
+  "starterCodes": {
+    "python": "# MÓDULO 8: Métodos - Las Acciones de un Objeto\n# =============================================\n# Un MÉTODO es una función dentro de una clase.\n# Siempre recibe 'self' como primer parámetro.\n# Dentro del método, accedes a los atributos con self.atributo\n#\n# Ejemplo de método:\n#   def describir(self):\n#       print(f'Soy un {self.tipo}')  <- usa self para acceder al atributo\n#\n# PASO 1: Define la clase Rectangulo con __init__(self, base, altura)\n# PASO 2:   self.base = base\n# PASO 3:   self.altura = altura\n# PASO 4: Define método describir(self):\n#           print(f'Rectángulo de {self.base}x{self.altura}')\n# PASO 5: Define método calcular_area(self):\n#           return self.base * self.altura\n# PASO 6: Crea objeto: r = Rectangulo(5, 3)\n# PASO 7: Llama: r.describir()         <- imprime: Rectángulo de 5x3\n# PASO 8: Imprime: print(r.calcular_area())  <- imprime: 15\n# Tu código va aquí:\n",
+    "cpp": "// class Rectangulo {\n// public:\n//     double base, altura;\n//     Rectangulo(double b, double h) : base(b), altura(h) {}\n//     void describir() const {\n//         std::cout << \"Rectángulo de \" << (int)base << \"x\" << (int)altura << \"\\n\";\n//     }\n//     double calcularArea() const { return base * altura; }\n// };\n"
+  },
+  "solutionReferences": {
+    "python": "class Rectangulo:\n    def __init__(self, base, altura):\n        self.base = base\n        self.altura = altura\n\n    def describir(self):\n        print(f'Rectángulo de {self.base}x{self.altura}')\n\n    def calcular_area(self):\n        return self.base * self.altura\n\nr = Rectangulo(5, 3)\nr.describir()\nprint(r.calcular_area())\n",
+    "cpp": "#include <iostream>\nclass Rectangulo {\npublic:\n    double base, altura;\n    Rectangulo(double b, double h) : base(b), altura(h) {}\n    void describir() const {\n        std::cout << \"Rectángulo de \" << (int)base << \"x\" << (int)altura << \"\\n\";\n    }\n    double calcularArea() const { return base * altura; }\n};\nint main() {\n    Rectangulo r(5, 3);\n    r.describir();\n    std::cout << r.calcularArea() << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir 'Rectángulo de 5x3' y luego '15'",
+      "input": "",
+      "expectedOutput": "Rectángulo de 5x3\n15",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta: misma salida",
+      "input": "",
+      "expectedOutput": "Rectángulo de 5x3\n15",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Cómo definir un método?",
+      "prompt": "Un método es igual que una función (def) pero va DENTRO de la clase con 4 espacios de indentación, y su primer parámetro SIEMPRE es 'self'. ¿Tu método describir está adentro de la clase Rectangulo?"
+    },
+    {
+      "level": 2,
+      "title": "¿Cómo acceder a la base y altura dentro del método?",
+      "prompt": "Dentro de describir(), para acceder a la base del rectángulo usas self.base (no solo 'base'). ¿Tu f-string usa self.base y self.altura?"
+    },
+    {
+      "level": 3,
+      "title": "¿Describir imprime, calcular_area retorna?",
+      "prompt": "describir() usa print() dentro — no retorna nada. calcular_area() usa return — no imprime nada. Luego FUERA de la clase: r.describir() (sin print) y print(r.calcular_area()). ¿Tienes las dos llamadas correctas?"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m7-ex2-vector",
+  "level": 26,
+  "title": "std::vector: El Array Dinámico de C++",
+  "subtitle": "Como una lista Python pero con tipo fijo y mejor rendimiento",
+  "difficulty": "Intermedio",
+  "xpReward": 100,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "std::vector es el equivalente a las listas de Python en C++: puede crecer dinámicamente. push_back() agrega al final (como append()), size() da la longitud (como len()). Tu tarea: crear un vector, agregar 3 números e imprimir tamaño y primer elemento.",
+    "learningObjectives": [
+      "Incluir <vector> y declarar std::vector<int>",
+      "Agregar elementos con push_back()",
+      "Obtener el tamaño con size()",
+      "Acceder por índice con [i]"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(n)"
+    }
+  },
+  "theory": {
+    "title": "std::vector: La Lista de Python en C++",
+    "mentalModel": "Un vector empieza vacío y crece según necesitas. Internamente, cuando se queda sin espacio, reserva el doble de capacidad automáticamente (amortización). Es como un cajón extensible: comienza pequeño, y cuando se llena, se reemplaza por uno más grande copiando todo el contenido.",
+    "mathematicalFoundation": "push_back() es O(1) amortizado: la mayoría de las veces es O(1) (hay espacio). Ocasionalmente es O(n) cuando hay que reasignar memoria. size() es O(1) — el vector guarda el conteo internamente. Acceso por índice [i] es O(1).",
+    "historicalFootnote": "std::vector fue introducido en el estándar C++ en 1998 (C++98) como parte de la STL (Standard Template Library) diseñada por Alexander Stepanov. Es la estructura de datos más usada en C++ moderno.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(n)",
+      "proofExplanation": "push_back es O(1) amortizado. size() y [] son O(1). El vector usa O(n) memoria para n elementos."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: numeros = [] → numeros.append(100) → len(numeros) → numeros[0]. Todo igual conceptualmente. La diferencia: Python acepta mezclar tipos (numeros.append('hola') funciona), el vector de C++ no.",
+    "cppExplanation": "C++: std::vector<int> numeros; → numeros.push_back(100); → numeros.size(); → numeros[0]. El <int> entre <> especifica que SOLO puede contener ints. Requiere #include <vector>."
+  },
+  "starterCodes": {
+    "python": "# Python equivalente:\nnumeros = []\nnumeros.append(100)\nnumeros.append(200)\nnumeros.append(300)\nprint(len(numeros))  # 3\nprint(numeros[0])    # 100\n",
+    "cpp": "// MÓDULO 7 C++: std::vector\n// ===========================\n// Vector = array dinámico que puede crecer\n// Requiere: #include <vector>\n//\n// Declarar vector vacío:\n//   std::vector<int> numeros;\n//\n// Agregar elementos al final:\n//   numeros.push_back(100);  <- como append() en Python\n//\n// Tamaño actual:\n//   numeros.size()           <- como len() en Python\n//\n// Acceso por índice:\n//   numeros[0]               <- primer elemento\n//\n// PASO 1: #include <iostream> y #include <vector>\n// PASO 2: int main() {\n// PASO 3: std::vector<int> numeros;\n// PASO 4: numeros.push_back(100);\n// PASO 5: numeros.push_back(200);\n// PASO 6: numeros.push_back(300);\n// PASO 7: std::cout << numeros.size() << \"\\n\";  <- imprime: 3\n// PASO 8: std::cout << numeros[0] << \"\\n\";      <- imprime: 100\n// PASO 9: return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "numeros = []\nnumeros.append(100)\nnumeros.append(200)\nnumeros.append(300)\nprint(len(numeros))\nprint(numeros[0])\n",
+    "cpp": "#include <iostream>\n#include <vector>\n\nint main() {\n    std::vector<int> numeros;\n    numeros.push_back(100);\n    numeros.push_back(200);\n    numeros.push_back(300);\n    std::cout << numeros.size() << \"\\n\";\n    std::cout << numeros[0] << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir '3' (tamaño) y '100' (primer elemento)",
+      "input": "",
+      "expectedOutput": "3\n100",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "3\n100",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Incluiste <vector>?",
+      "prompt": "std::vector requiere #include <vector> además de #include <iostream>. Sin ese include, el compilador no reconoce std::vector. ¿Tienes ambos includes al inicio?"
+    },
+    {
+      "level": 2,
+      "title": "¿La sintaxis de declaración con <>?",
+      "prompt": "std::vector necesita el tipo entre <>: std::vector<int> numeros; — el <int> indica que solo guarda enteros. No puedes declarar solo std::vector numeros; sin el tipo. ¿Tienes el <int>?"
+    },
+    {
+      "level": 3,
+      "title": "¿size() vs length()?",
+      "prompt": "En C++, el método para obtener el tamaño de un vector es .size() (no .length() como en algunos otros lenguajes). Y recuerda: numeros[0] da el PRIMER elemento (índice 0). ¿Usas .size() y [0]?"
+    }
+  ]
+}

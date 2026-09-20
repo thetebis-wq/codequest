@@ -1,0 +1,81 @@
+{
+  "id": "py-m8-ex1-primera-clase",
+  "level": 17,
+  "title": "Tu Primera Clase y Objeto",
+  "subtitle": "Crea plantillas para representar cosas del mundo real",
+  "difficulty": "Intermedio",
+  "xpReward": 110,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "Una clase es un plano/plantilla para crear objetos. Un objeto es una instancia de la clase con sus propios datos. Tu tarea: definir la clase 'Persona' con nombre y edad, crear una instancia, e imprimir sus atributos.",
+    "learningObjectives": [
+      "Definir una clase con class y el constructor __init__",
+      "Entender qué es 'self' y por qué siempre es el primer parámetro",
+      "Crear un objeto (instancia) de una clase",
+      "Acceder a atributos del objeto con objeto.atributo"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Clases: Planos para Crear Objetos",
+    "mentalModel": "Una clase es como el plano de una casa: define cómo será (cuántos cuartos, qué color). Un objeto es una casa real construida según ese plano. Puedes construir miles de casas distintas con el mismo plano, cada una con sus propios colores y muebles.",
+    "mathematicalFoundation": "La POO modela el mundo real como entidades con estado (atributos) y comportamiento (métodos). Una clase define el tipo; cada objeto tiene su propia copia de los atributos.",
+    "historicalFootnote": "La Programación Orientada a Objetos nació en los años 60 con Simula (creada por Ole-Johan Dahl y Kristen Nygaard). Fue adoptada por Smalltalk, C++, Java y Python como paradigma dominante.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Crear un objeto y acceder a sus atributos son operaciones de tiempo constante."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python usa '__init__' como constructor y 'self' como referencia al objeto actual. Python añade automáticamente 'self' cuando llamas métodos: persona1.metodo() → Persona.metodo(persona1).",
+    "cppExplanation": "C++ usa un constructor con el mismo nombre que la clase (sin __init__). No hay 'self' — los atributos se acceden directamente por nombre dentro de la clase. El acceso externo es objeto.atributo igual que Python."
+  },
+  "starterCodes": {
+    "python": "# MÓDULO 8: Clases y Objetos - Programación Orientada a Objetos\n# =============================================================\n# Una CLASE es un plano/plantilla. Un OBJETO es una instancia de ese plano.\n#\n# Sintaxis de una clase:\n#   class NombreClase:\n#       def __init__(self, parametro1, parametro2):\n#           self.atributo1 = parametro1   <- guarda el dato en el objeto\n#           self.atributo2 = parametro2\n#\n# Crear un objeto:\n#   mi_objeto = NombreClase(valor1, valor2)\n#\n# Acceder a un atributo:\n#   print(mi_objeto.atributo1)\n#\n# PASO 1: Define la clase Persona con __init__(self, nombre, edad)\n# PASO 2:   (8 espacios) self.nombre = nombre\n# PASO 3:   (8 espacios) self.edad = edad\n# PASO 4: Crea un objeto: persona1 = Persona('María', 30)\n# PASO 5: print(persona1.nombre)  <- imprime: María\n# PASO 6: print(persona1.edad)    <- imprime: 30\n# Tu código va aquí:\n",
+    "cpp": "// class Persona {\n// public:\n//     std::string nombre;\n//     int edad;\n//     Persona(std::string n, int e) : nombre(n), edad(e) {}\n// };\n// Persona p(\"María\", 30);\n// std::cout << p.nombre << \"\\n\" << p.edad;\n"
+  },
+  "solutionReferences": {
+    "python": "class Persona:\n    def __init__(self, nombre, edad):\n        self.nombre = nombre\n        self.edad = edad\n\npersona1 = Persona('María', 30)\nprint(persona1.nombre)\nprint(persona1.edad)\n",
+    "cpp": "#include <iostream>\n#include <string>\nclass Persona {\npublic:\n    std::string nombre;\n    int edad;\n    Persona(std::string n, int e) : nombre(n), edad(e) {}\n};\nint main() {\n    Persona p(\"María\", 30);\n    std::cout << p.nombre << \"\\n\" << p.edad << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir 'María' y luego '30'",
+      "input": "",
+      "expectedOutput": "María\n30",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta: misma salida",
+      "input": "",
+      "expectedOutput": "María\n30",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Qué hace __init__?",
+      "prompt": "__init__ es el constructor: el método que Python llama AUTOMÁTICAMENTE cuando creas un objeto. Si escribes Persona('María', 30), Python llama __init__(self, 'María', 30). ¿Ya definiste __init__ con los parámetros correctos?"
+    },
+    {
+      "level": 2,
+      "title": "¿Para qué sirve self?",
+      "prompt": "self es el objeto mismo. self.nombre = nombre guarda el valor 'María' EN el objeto. Sin self, sería solo una variable local que desaparece. ¿Usas self.nombre y self.edad en tu __init__?"
+    },
+    {
+      "level": 3,
+      "title": "¿Cómo crear el objeto?",
+      "prompt": "Para crear un objeto de la clase Persona con nombre='María' y edad=30: persona1 = Persona('María', 30). Luego accedes con persona1.nombre y persona1.edad. ¿Ya tienes esa línea después de definir la clase?"
+    }
+  ]
+}

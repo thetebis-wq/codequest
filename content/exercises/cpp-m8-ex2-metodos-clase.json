@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m8-ex2-metodos-clase",
+  "level": 27,
+  "title": "Métodos en Clases C++",
+  "subtitle": "Funciones que pertenecen a un objeto — sin 'self'",
+  "difficulty": "Intermedio",
+  "xpReward": 120,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "Los métodos en C++ se declaran dentro de la clase igual que funciones normales, pero sin el parámetro 'self'. Acceden a los atributos directamente por nombre. 'const' al final indica que el método no modifica el objeto. Tu tarea: crear clase Rectangulo con métodos describir() y calcularArea().",
+    "learningObjectives": [
+      "Declarar métodos dentro de una clase C++",
+      "Acceder a atributos del objeto directamente por nombre (sin self)",
+      "Usar 'const' para marcar métodos que no modifican el objeto",
+      "Llamar métodos con objeto.metodo()"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Métodos en C++: Funciones con Acceso Privilegiado",
+    "mentalModel": "Un método C++ es una función que vive dentro de la clase y tiene acceso directo a todos los atributos del objeto. No necesita 'self' porque el compilador sabe implícitamente a qué objeto pertenece. 'const' al final es un contrato: este método PROMETE no modificar nada del objeto — útil para funciones de consulta como getArea().",
+    "mathematicalFoundation": "La palabra 'const' en métodos implementa la noción matemática de función pura: para los mismos atributos del objeto, siempre devuelve el mismo resultado sin efectos secundarios. El compilador puede optimizar funciones const agresivamente.",
+    "historicalFootnote": "El calificador 'const' en métodos de C++ permite el paradigma de 'const correctness': diseñar APIs donde está claro qué operaciones leen y qué operaciones modifican. Es una de las características más influyentes de C++ en el diseño de APIs seguras.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Calcular área (una multiplicación) y describir (formatear strings) son O(1)."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python: def calcular_area(self): return self.base * self.altura — 'self' es explícito siempre. En C++: double calcularArea() const { return base * altura; } — no hay self, 'base' y 'altura' se acceden directamente.",
+    "cppExplanation": "C++: los métodos acceden a base y altura directamente. 'const' después de los paréntesis marca el método como 'solo lectura'. Un método sin const puede modificar atributos; uno con const no puede."
+  },
+  "starterCodes": {
+    "python": "# Python equivalente:\nclass Rectangulo:\n    def __init__(self, base, altura):\n        self.base = base\n        self.altura = altura\n    def describir(self):\n        print(f'Rectángulo de {self.base}x{self.altura}')\n    def calcular_area(self):\n        return self.base * self.altura\n\nr = Rectangulo(5, 3)\nr.describir()\nprint(r.calcular_area())\n",
+    "cpp": "// MÓDULO 8 C++: Métodos en Clases\n// ==================================\n// Los métodos van DENTRO de la clase, sin 'self'.\n// Acceden a los atributos directamente por nombre.\n// 'const' al final: el método NO modifica el objeto.\n//\n// class Rectangulo {\n// public:\n//     double base;\n//     double altura;\n//\n//     Rectangulo(double b, double h) {\n//         base = b;\n//         altura = h;\n//     }\n//\n//     void describir() const {\n//         std::cout << \"Rectángulo de \" << (int)base << \"x\" << (int)altura << \"\\n\";\n//     }\n//\n//     double calcularArea() const {\n//         return base * altura;\n//     }\n// };\n//\n// int main() {\n//     Rectangulo r(5, 3);\n//     r.describir();\n//     std::cout << r.calcularArea() << \"\\n\";\n//     return 0;\n// }\n// Escribe el código real aquí (sin los // al inicio):\n"
+  },
+  "solutionReferences": {
+    "python": "class Rectangulo:\n    def __init__(self, base, altura):\n        self.base = base\n        self.altura = altura\n    def describir(self):\n        print(f'Rectángulo de {self.base}x{self.altura}')\n    def calcular_area(self):\n        return self.base * self.altura\n\nr = Rectangulo(5, 3)\nr.describir()\nprint(r.calcular_area())\n",
+    "cpp": "#include <iostream>\n\nclass Rectangulo {\npublic:\n    double base;\n    double altura;\n\n    Rectangulo(double b, double h) {\n        base = b;\n        altura = h;\n    }\n\n    void describir() const {\n        std::cout << \"Rectángulo de \" << (int)base << \"x\" << (int)altura << \"\\n\";\n    }\n\n    double calcularArea() const {\n        return base * altura;\n    }\n};\n\nint main() {\n    Rectangulo r(5, 3);\n    r.describir();\n    std::cout << r.calcularArea() << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Debe imprimir 'Rectángulo de 5x3' y luego '15'",
+      "input": "",
+      "expectedOutput": "Rectángulo de 5x3\n15",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "Rectángulo de 5x3\n15",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Los métodos van dentro de la clase?",
+      "prompt": "Los métodos se declaran dentro de las llaves { } de la clase, antes del }; final. Igual que describir() y calcularArea() en el ejemplo. ¿Tus métodos están dentro de la clase Rectangulo?"
+    },
+    {
+      "level": 2,
+      "title": "¿Cómo imprimir 5x3 sin decimales?",
+      "prompt": "base y altura son double (5.0 y 3.0). Para imprimir '5x3' sin decimales, haz cast a int: (int)base y (int)altura. Dentro del cout: cout << (int)base << 'x' << (int)altura. ¿Lo tienes?"
+    },
+    {
+      "level": 3,
+      "title": "¿calcularArea() retorna o imprime?",
+      "prompt": "calcularArea() debe RETORNAR el valor (return base * altura) — no imprimirlo. Luego en main(), tú imprimes el resultado: cout << r.calcularArea(). ¿Tu método usa return, no cout?"
+    }
+  ]
+}

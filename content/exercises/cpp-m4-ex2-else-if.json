@@ -1,0 +1,81 @@
+{
+  "id": "cpp-m4-ex2-else-if",
+  "level": 23,
+  "title": "Múltiples Condiciones con else if",
+  "subtitle": "'else if' en C++ — no 'elif' como en Python",
+  "difficulty": "Fundamento",
+  "xpReward": 70,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "Para encadenar múltiples condiciones en C++ se usa 'else if' (dos palabras separadas, no 'elif'). Tu tarea: clasificar una nota en letra según rangos usando if/else if/else.",
+    "learningObjectives": [
+      "Encadenar condiciones con 'else if' (dos palabras en C++)",
+      "Entender que Python usa 'elif' pero C++ usa 'else if'",
+      "Saber que Python evalúa de arriba a abajo y para al primer true",
+      "Aplicar rangos numéricos como condiciones"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Cadenas de Condiciones: if → else if → else",
+    "mentalModel": "Piensa en una clasificación por escalones: empiezas en el escalón más alto (>= 90), si no aplica bajas al siguiente (>= 80), y así hasta llegar al caso por defecto (else). El programa siempre toma exactamente uno de los caminos — como un árbol de decisiones donde solo se sigue una rama.",
+    "mathematicalFoundation": "La cadena if/else if implementa una función por tramos: f(nota) = 'A' si nota >= 90, 'B' si 80 <= nota < 90, 'C' si 70 <= nota < 80, 'D' en otro caso. Cada rama es mutuamente exclusiva.",
+    "historicalFootnote": "Los compiladores modernos optimizan cadenas if/else if en tablas de salto (jump tables) cuando las condiciones son valores discretos, haciendo la evaluación O(1) en vez de O(n).",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Un número fijo de comparaciones encadenadas es O(1) — no depende del valor de 'nota'."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python usa 'elif' (contracción de else if): if nota >= 90: ... elif nota >= 80: ... elif nota >= 70: ... else: ...",
+    "cppExplanation": "C++ usa 'else if' (dos palabras): if (nota >= 90) { } else if (nota >= 80) { } else if (nota >= 70) { } else { }. La lógica es idéntica, solo la sintaxis difiere."
+  },
+  "starterCodes": {
+    "python": "# Python equivalente:\nnota = 85\nif nota >= 90:\n    print('Excelente (A)')\nelif nota >= 80:\n    print('Muy Bien (B)')\nelif nota >= 70:\n    print('Bien (C)')\nelse:\n    print('Necesitas mejorar (D)')\n",
+    "cpp": "// MÓDULO 4 C++: else if (no 'elif')\n// ====================================\n// Python usa 'elif', C++ usa 'else if' (dos palabras)\n//\n// Estructura:\n//   if (condicion1) {\n//       ...\n//   } else if (condicion2) {\n//       ...\n//   } else if (condicion3) {\n//       ...\n//   } else {\n//       ...\n//   }\n//\n// PASO 1: #include <iostream>\n// PASO 2: int main() {\n// PASO 3: int nota = 85;\n// PASO 4: if (nota >= 90) { cout << \"Excelente (A)\" << \"\\n\"; }\n// PASO 5: else if (nota >= 80) { cout << \"Muy Bien (B)\" << \"\\n\"; }\n// PASO 6: else if (nota >= 70) { cout << \"Bien (C)\" << \"\\n\"; }\n// PASO 7: else { cout << \"Necesitas mejorar (D)\" << \"\\n\"; }\n// PASO 8: return 0; }\n// Tu código va aquí:\n"
+  },
+  "solutionReferences": {
+    "python": "nota = 85\nif nota >= 90:\n    print('Excelente (A)')\nelif nota >= 80:\n    print('Muy Bien (B)')\nelif nota >= 70:\n    print('Bien (C)')\nelse:\n    print('Necesitas mejorar (D)')\n",
+    "cpp": "#include <iostream>\n\nint main() {\n    int nota = 85;\n    if (nota >= 90) {\n        std::cout << \"Excelente (A)\" << \"\\n\";\n    } else if (nota >= 80) {\n        std::cout << \"Muy Bien (B)\" << \"\\n\";\n    } else if (nota >= 70) {\n        std::cout << \"Bien (C)\" << \"\\n\";\n    } else {\n        std::cout << \"Necesitas mejorar (D)\" << \"\\n\";\n    }\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Con nota=85, debe imprimir 'Muy Bien (B)'",
+      "input": "",
+      "expectedOutput": "Muy Bien (B)",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta",
+      "input": "",
+      "expectedOutput": "Muy Bien (B)",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿'elif' o 'else if'?",
+      "prompt": "En Python escribes 'elif'. En C++ son DOS palabras separadas: 'else if'. Si escribes 'elif' en C++, el compilador no lo reconocerá. ¿Usas 'else if' (con espacio) en tu código?"
+    },
+    {
+      "level": 2,
+      "title": "¿El orden de las condiciones importa?",
+      "prompt": "Con nota=85: ¿por qué la primera condición (>= 90) no aplica? ¿La segunda (>= 80) sí aplica? Si pusieras las condiciones en orden inverso (>= 70 primero), ¿qué pasaría con nota=85?"
+    },
+    {
+      "level": 3,
+      "title": "¿Las llaves están bien cerradas?",
+      "prompt": "Cada bloque if/else if/else debe tener su llave de apertura { y su llave de cierre }. Un error común es olvidar cerrar una llave. ¿Tienes el mismo número de { que de }?"
+    }
+  ]
+}

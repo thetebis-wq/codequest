@@ -1,0 +1,63 @@
+{
+  "id": "py-m4-ex2-if-elif-else",
+  "level": 13,
+  "title": "Múltiples Condiciones con elif",
+  "subtitle": "Encadena decisiones para crear lógica compleja",
+  "difficulty": "Fundamento",
+  "xpReward": 70,
+  "entryFunctionName": null,
+  "evaluationType": "stdout",
+  "spec": {
+    "summary": "Define nota = 85. Imprime el grado correspondiente:\n>= 90: 'Excelente (A)'\n>= 80: 'Muy Bien (B)'\n>= 70: 'Bien (C)'\nelse: 'Necesitas mejorar (D)'",
+    "learningObjectives": [
+      "Usar sentencias elif para múltiples condiciones excluyentes",
+      "Entender que Python evalúa de arriba a abajo y se detiene en la primera condición que sea True"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "La Cadena de Decisiones",
+    "mentalModel": "elif significa 'else if' (si no, entonces si...). Permite encadenar preguntas. Si la primera pregunta es Falsa, se hace la segunda pregunta, y así sucesivamente.",
+    "mathematicalFoundation": "Lógica booleana evaluada en cadena excluyente.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "El número de evaluaciones está acotado por una constante."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "En Python usamos la palabra clave `elif` para encadenar condiciones.",
+    "cppExplanation": "En C++ usamos `else if`."
+  },
+  "starterCodes": {
+    "python": "# PASO 1: Define nota = 85\n# PASO 2: Usa if para verificar si la nota es >= 90 e imprime 'Excelente (A)'\n# PASO 3: Usa elif para verificar si la nota es >= 80 e imprime 'Muy Bien (B)'\n# PASO 4: Usa otro elif para verificar si la nota es >= 70 e imprime 'Bien (C)'\n# PASO 5: Usa else al final para imprimir 'Necesitas mejorar (D)'\n# Tu código va aquí:\n",
+    "cpp": "#include <iostream>\n\nint main() {\n    // Escribe la estructura if / else if / else para la nota 85\n    // Tu código va aquí:\n    \n    return 0;\n}"
+  },
+  "solutionReferences": {
+    "python": "nota = 85\nif nota >= 90:\n    print('Excelente (A)')\nelif nota >= 80:\n    print('Muy Bien (B)')\nelif nota >= 70:\n    print('Bien (C)')\nelse:\n    print('Necesitas mejorar (D)')",
+    "cpp": "#include <iostream>\n\nint main() {\n    int nota = 85;\n    if (nota >= 90) {\n        std::cout << \"Excelente (A)\" << std::endl;\n    } else if (nota >= 80) {\n        std::cout << \"Muy Bien (B)\" << std::endl;\n    } else if (nota >= 70) {\n        std::cout << \"Bien (C)\" << std::endl;\n    } else {\n        std::cout << \"Necesitas mejorar (D)\" << std::endl;\n    }\n    return 0;\n}"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "input": "",
+      "expectedOutput": "Muy Bien (B)\n",
+      "isHidden": false,
+      "evaluationType": "stdout"
+    },
+    {
+      "id": "tc-2",
+      "input": "",
+      "expectedOutput": "Muy Bien (B)\n",
+      "isHidden": true,
+      "evaluationType": "stdout"
+    }
+  ],
+  "socraticHints": [
+    {"level": 1, "title": "Orden de condiciones", "prompt": "Asegúrate de evaluar desde la condición más exigente (mayor que 90) hasta la menos exigente, porque Python se detendrá en la primera que sea cierta."}
+  ]
+}

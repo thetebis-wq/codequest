@@ -1,0 +1,81 @@
+{
+  "id": "py-m9-ex2-libreria-random",
+  "level": 18,
+  "title": "Números Aleatorios con random",
+  "subtitle": "Genera valores impredecibles para juegos y simulaciones",
+  "difficulty": "Intermedio",
+  "xpReward": 110,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "La librería random genera números aleatorios. random.seed(42) hace la aleatoriedad reproducible (misma secuencia siempre). Tu tarea: importar random, fijar la semilla en 42, y simular un dado con randint(1,6).",
+    "learningObjectives": [
+      "Importar y usar la librería random",
+      "Entender random.seed() para reproducibilidad en pruebas",
+      "Usar random.randint(a, b) para enteros aleatorios",
+      "Distinguir entre aleatoriedad 'verdadera' y pseudoaleatoriedad"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "Aleatoriedad Controlada: seed() y Pseudoaleatoriedad",
+    "mentalModel": "Las computadoras no pueden generar números verdaderamente aleatorios — son máquinas deterministas. Usan algoritmos matemáticos que producen secuencias que PARECEN aleatorias. random.seed(42) fija el punto de inicio de esa secuencia: siempre dará los mismos 'números aleatorios'. Útil para pruebas reproducibles.",
+    "mathematicalFoundation": "Python usa el algoritmo Mersenne Twister (MT19937) como generador pseudoaleatorio. Con seed(42), randint(1,6) devuelve siempre 1 en la primera llamada. El período del MT es 2^19937-1 — prácticamente infinito.",
+    "historicalFootnote": "El Mersenne Twister fue desarrollado en 1997 por Makoto Matsumoto y Takuji Nishimura. Es el generador predeterminado en Python, Ruby, R y PHP. Para criptografía, se usa random.SystemRandom() que toma entropía real del sistema operativo.",
+    "asymptoticComplexity": {
+      "time": "O(1)",
+      "space": "O(1)",
+      "proofExplanation": "Generar un número aleatorio es O(1) — una operación matemática fija independiente del rango."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "random.randint(1, 6) incluye AMBOS extremos: puede dar 1, 2, 3, 4, 5 o 6. random.choice(['a','b','c']) elige aleatoriamente de una lista. random.random() da un float entre 0.0 y 1.0.",
+    "cppExplanation": "C++ moderno: #include <random>. std::mt19937 gen(42); std::uniform_int_distribution<> dist(1, 6); int dado = dist(gen); — más verbose pero más flexible. El clásico rand() % 6 + 1 es obsoleto y de baja calidad."
+  },
+  "starterCodes": {
+    "python": "# MÓDULO 9: Números Aleatorios con random\n# ========================================\n# import random da acceso a herramientas de aleatoriedad.\n#\n# Funciones importantes:\n#   random.seed(42)         <- fija la semilla (hace resultados reproducibles)\n#   random.randint(1, 6)    <- número entero aleatorio entre 1 y 6 (incluyendo ambos)\n#   random.choice([a,b,c])  <- elige aleatoriamente de una lista\n#\n# IMPORTANTE: Con seed(42), random.randint(1, 6) siempre devuelve 1\n# Eso permite que las pruebas automáticas funcionen.\n#\n# PASO 1: import random\n# PASO 2: random.seed(42)           <- fija la semilla\n# PASO 3: dado = random.randint(1, 6)\n# PASO 4: print(dado)               <- debe imprimir: 1\n# Tu código va aquí:\n",
+    "cpp": "// #include <random>\n// std::mt19937 gen(42);\n// std::uniform_int_distribution<> dist(1, 6);\n// int dado = dist(gen);\n// std::cout << dado;\n"
+  },
+  "solutionReferences": {
+    "python": "import random\n\nrandom.seed(42)\ndado = random.randint(1, 6)\nprint(dado)\n",
+    "cpp": "#include <iostream>\n#include <random>\nint main() {\n    std::mt19937 gen(42);\n    std::uniform_int_distribution<> dist(1, 6);\n    int dado = dist(gen);\n    std::cout << dado << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "Con seed(42), randint(1,6) debe dar 1",
+      "input": "",
+      "expectedOutput": "1",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta: misma salida",
+      "input": "",
+      "expectedOutput": "1",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Para qué sirve seed()?",
+      "prompt": "random.seed(42) fija el punto de inicio del generador. Con la misma semilla, siempre obtienes la misma secuencia de números 'aleatorios'. ¿Tienes random.seed(42) ANTES de llamar randint?"
+    },
+    {
+      "level": 2,
+      "title": "¿Cuántos argumentos necesita randint?",
+      "prompt": "random.randint(a, b) necesita dos argumentos: el mínimo y el máximo, INCLUYENDO ambos. Para simular un dado de 6 caras: random.randint(1, 6). ¿Lo tienes correcto?"
+    },
+    {
+      "level": 3,
+      "title": "¿Por qué el resultado es siempre 1?",
+      "prompt": "Con seed(42), la primera llamada a randint(1,6) SIEMPRE da 1 en Python. Esto no es un bug — es la reproducibilidad. Si cambias la semilla, cambiarán los resultados. ¿Las pruebas esperan exactamente '1'?"
+    }
+  ]
+}

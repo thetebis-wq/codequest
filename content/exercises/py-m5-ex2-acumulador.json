@@ -1,0 +1,81 @@
+{
+  "id": "py-m5-ex2-acumulador",
+  "level": 14,
+  "title": "El Patrón del Acumulador con while",
+  "subtitle": "Suma, cuenta o acumula valores con un bucle while",
+  "difficulty": "Fundamento",
+  "xpReward": 80,
+  "entryFunctionName": null,
+  "spec": {
+    "summary": "El bucle while repite código MIENTRAS una condición sea verdadera. El patrón del acumulador empieza en 0 y suma valores en cada vuelta. Tu tarea: calcular e imprimir la suma de todos los números del 1 al 10 usando while.",
+    "learningObjectives": [
+      "Entender el bucle while y cuándo usarlo vs for",
+      "Aplicar el patrón del acumulador (variable que se incrementa)",
+      "Saber que while puede causar bucles infinitos si la condición nunca se vuelve falsa",
+      "Usar break y continue para controlar el flujo"
+    ],
+    "constraints": {
+      "inputRange": "Sin entrada",
+      "timeLimitMs": 5000,
+      "auxiliarySpace": "O(1)"
+    }
+  },
+  "theory": {
+    "title": "while: Repite Hasta que Algo Cambie",
+    "mentalModel": "Imagina un mozo que sigue rellenando tu vaso MIENTRAS esté medio vacío. En cuanto está lleno (condición falsa), para. Eso es while: repite mientras la condición sea True, para cuando se vuelve False. El patrón acumulador es como una caja registradora: empieza en $0 y va sumando cada compra.",
+    "mathematicalFoundation": "La suma 1+2+3+...+n tiene fórmula: n*(n+1)/2. Para n=10: 10*11/2 = 55. El bucle while verifica esta misma suma iterativamente.",
+    "historicalFootnote": "El patrón acumulador es uno de los algoritmos más antiguos de la computación, presente en los primeros lenguajes ensambladores para calcular totales en contabilidad.",
+    "asymptoticComplexity": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "proofExplanation": "El bucle se ejecuta exactamente n veces. Solo usa dos variables (total e i), sin importar el valor de n."
+    }
+  },
+  "languageBridge": {
+    "pythonExplanation": "Python usa 'while condición:' con bloque indentado. La condición se evalúa antes de cada iteración. Si empieza False, el cuerpo nunca se ejecuta.",
+    "cppExplanation": "En C++: while (condicion) { } — misma lógica pero con llaves. También existe do-while que ejecuta al menos una vez: do { } while (condicion);"
+  },
+  "starterCodes": {
+    "python": "# MÓDULO 5: El Patrón del Acumulador con while\n# =============================================\n# Un bucle while repite código MIENTRAS una condición sea True.\n# Sintaxis:\n#   while condición:\n#       código_que_se_repite  <- ¡4 espacios!\n#\n# El PATRÓN DEL ACUMULADOR:\n#   total = 0        <- empezar en cero\n#   i = 1            <- contador\n#   while i <= 10:   <- condición de parada\n#       total = total + i   <- acumular\n#       i = i + 1    <- ¡IMPORTANTE! avanzar el contador\n#   print(total)     <- mostrar resultado (FUERA del bucle)\n#\n# PASO 1: Crea la variable total = 0\n# PASO 2: Crea la variable i = 1\n# PASO 3: Escribe el while con condición i <= 10\n# PASO 4: Dentro del while (4 espacios): total = total + i\n# PASO 5: Dentro del while (4 espacios): i = i + 1\n# PASO 6: Fuera del while: print(total)\n# Tu código va aquí:\n",
+    "cpp": "// En C++ el acumulador se escribe:\n// int total = 0, i = 1;\n// while (i <= 10) { total += i; i++; }\n// std::cout << total;\n"
+  },
+  "solutionReferences": {
+    "python": "total = 0\ni = 1\nwhile i <= 10:\n    total = total + i\n    i = i + 1\nprint(total)\n",
+    "cpp": "#include <iostream>\nint main() {\n    int total = 0, i = 1;\n    while (i <= 10) {\n        total += i;\n        i++;\n    }\n    std::cout << total << \"\\n\";\n    return 0;\n}\n"
+  },
+  "testCases": [
+    {
+      "id": "tc-1",
+      "description": "La suma de 1 a 10 es 55",
+      "input": "",
+      "expectedOutput": "55",
+      "evaluationType": "stdout",
+      "isHidden": false
+    },
+    {
+      "id": "tc-2",
+      "description": "Verificación oculta: resultado debe ser 55",
+      "input": "",
+      "expectedOutput": "55",
+      "evaluationType": "stdout",
+      "isHidden": true
+    }
+  ],
+  "socraticHints": [
+    {
+      "level": 1,
+      "title": "¿Qué hace total = total + i?",
+      "prompt": "Si total vale 6 y i vale 4, ¿cuánto vale total después de ejecutar total = total + i? ¿Qué patrón ves aquí?"
+    },
+    {
+      "level": 2,
+      "title": "¿Por qué incrementar i dentro del bucle?",
+      "prompt": "¿Qué pasaría si olvidas escribir 'i = i + 1' dentro del while? ¿Cuándo se volvería falsa la condición i <= 10?"
+    },
+    {
+      "level": 3,
+      "title": "¿Dónde va el print?",
+      "prompt": "Si pones print(total) DENTRO del bucle (con 4 espacios de indentación), ¿qué imprimiría? ¿Qué diferencia hay con ponerlo FUERA del bucle (sin indentación)?"
+    }
+  ]
+}
