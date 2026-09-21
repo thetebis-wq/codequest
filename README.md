@@ -43,7 +43,6 @@ codequest/
 │   └── exercises/        # Catálogo de 36 ejercicios prácticos paso a paso
 ├── docs/                 # Documentación y blueprints del proyecto
 │   ├── codequest-antigravity-brief.md
-│   ├── ORIGINAL_REQUEST.md
 │   ├── PEDAGOGICAL_AUDIT_AND_BLUEPRINT.md
 │   └── ROADMAP.md
 ├── lib/                  # Lógica de negocio y motores
@@ -61,6 +60,9 @@ codequest/
 ```bash
 # Instalar dependencias
 npm install
+
+# Ejecutar suite de pruebas de verificación (runners, currículo y andamiaje)
+npm test
 
 # Iniciar servidor de desarrollo en http://localhost:3000
 npm run dev

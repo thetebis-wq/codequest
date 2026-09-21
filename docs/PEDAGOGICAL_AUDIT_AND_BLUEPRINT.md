@@ -1,7 +1,7 @@
 # CodeQuest Lab: Auditoría Integral y Blueprint Pedagógico
 
 > **Documento Rector de Arquitectura, Auditoría y Fundamentación Pedagógica**  
-> **Ubicación:** `c:\Proyectos\codequest\PEDAGOGICAL_AUDIT_AND_BLUEPRINT.md`  
+> **Ubicación:** `docs/PEDAGOGICAL_AUDIT_AND_BLUEPRINT.md`  
 > **Referencias:** `codequest-antigravity-brief.md`, `codequest-design.md`, Tokens *DevLab Precision* y 44 archivos exportados de Google Stitch.
 
 ---
@@ -126,7 +126,7 @@ En cada nivel curricular, la plataforma debe explicar explícitamente el puente 
 En lugar de arrastrar 22 archivos monolíticos redundantes, consolidamos la plataforma en **5 vistas de primer nivel**, respaldadas por componentes altamente modulares y tipados:
 
 ```
-c:\Proyectos\codequest\
+codequest/
 ├── app/
 │   ├── layout.tsx                     # Shell común: Sidebar + Header (DevLab Precision)
 │   ├── page.tsx                       # Redirección inteligente al Dashboard
@@ -252,4 +252,4 @@ Con este blueprint, el proyecto queda 100% blindado contra el ruido, la duplicac
 ### Preguntas Clave para el Usuario antes de Comenzar:
 1. **Consolidación Estructural:** ¿Confirmas que procedamos a implementar las **5 vistas limpias** (`/dashboard`, `/curriculum`, `/lab`, `/interview`, `/analytics`, `/settings`), descartando la duplicación de los 22 archivos de Stitch pero reutilizando todos sus componentes de UI pulidos?
 2. **Eliminación del Ruido Visual:** ¿Confirmas la eliminación de los falsos textos de telemetría de servidor (*"Sub-12ms Latency"*, *"Session Protocol #2488"*) para sustituirlos por métricas pedagógicas reales de tiempo de ejecución y memoria?
-3. **Inicio de la Fase 1:** ¿Deseas que iniciemos inmediatamente con el andamiaje del proyecto en Next.js en `c:\Proyectos\codequest`, configurando los tokens de *DevLab Precision*, el layout base (Sidebar y Header limpios) y la estructura de directorios?
+3. **Inicio de la Fase 1:** ¿Deseas que iniciemos inmediatamente con el andamiaje del proyecto en Next.js en el repositorio, configurando los tokens de *DevLab Precision*, el layout base (Sidebar y Header limpios) y la estructura de directorios?

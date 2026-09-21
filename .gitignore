@@ -45,4 +45,6 @@ Thumbs.db
 # Local private documentation (do not commit to public repository)
 docs/CONVERSATION_HISTORY.md
 docs/*CONVERSATION*
+docs/ORIGINAL_REQUEST.md
+docs/ORIGINAL_REQUEST*
 *.local.md

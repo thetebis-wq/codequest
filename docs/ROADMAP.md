@@ -53,7 +53,7 @@
 
 ### Fase 0: Cimientos Técnicos, Tokens y Shell Base
 *Objetivo: Tener la aplicación web levantada, limpia y con la identidad visual exacta de Stitch.*
-- [x] Inicializar la estructura base de **Next.js 15** con TypeScript y Tailwind CSS en `c:\Proyectos\codequest`.
+- [x] Inicializar la estructura base de **Next.js 15** con TypeScript y Tailwind CSS en el repositorio.
 - [x] Configurar los tokens de color del tema oscuro (*DevLab Precision*: superficies `#131313`, primario `#adc7ff`, fuentes `Inter` y `JetBrains Mono`, iconos Material Symbols).
 - [x] Crear el layout compartido:
   - `<Sidebar />`: Navegación lateral limpia hacia las secciones principales.
