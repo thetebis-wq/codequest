@@ -41,3 +41,8 @@ Thumbs.db
 # AI & Agent artifacts
 .agents/
 .gemini/
+
+# Local private documentation (do not commit to public repository)
+docs/CONVERSATION_HISTORY.md
+docs/*CONVERSATION*
+*.local.md
